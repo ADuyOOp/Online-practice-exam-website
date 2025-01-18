@@ -1,0 +1,21 @@
+c-Who is the woman?
+A restaurant manager
+A presentation participant
+A workshop organizer
+A cook
+r-c
+
+c-What does the woman mean when she says, “I have a weekly meeting soon”?
+She cannot talk with the man for long.
+She will discuss the problem soon.
+She will invite the man to a weekly meeting.
+She will participate in the workshop next Friday.
+r-a
+
+c-What does Kimmy additionally want?
+A cheaper price
+Additional food items
+Some alcohol
+Dinner menus
+r-b
+

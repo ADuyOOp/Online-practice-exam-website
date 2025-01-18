@@ -1,0 +1,21 @@
+c-What does the woman want to find?
+Some money
+A file
+An office key
+A check
+r-b
+
+c-Where most likely is Patrick?
+At his home
+In his office
+At a restaurant
+On a business trip
+r-d
+
+c-What will John most likely do next?
+Check his office
+Bring Patrick
+Postpone a meeting
+Reply to a letter
+r-d
+

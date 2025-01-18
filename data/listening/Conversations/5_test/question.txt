@@ -1,0 +1,21 @@
+c-What are the speakers talking about?
+Food on the menu
+A dinner for guests
+A good place to eat
+A presentation coming up next month
+r-b
+
+c-What will happen at 8 o’clock?
+A presentation will take place as scheduled.
+They will go home.
+Food will be served.
+They will call the caterer.
+r-c
+
+c-What will probably happen next?
+They will do the presentation.
+They will go to the caterer.
+They will go to a restaurant.
+They will cancel the event.
+r-a
+

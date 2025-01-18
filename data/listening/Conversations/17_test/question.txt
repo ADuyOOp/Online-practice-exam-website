@@ -1,0 +1,21 @@
+c-Where does the woman most likely work?
+At a shipping company
+At a warehouse
+At a contracting company
+At a consulting firm
+r-c
+
+c-What is the purpose of the woman’s call?
+To change the size of an item
+To inquire about delivery options
+To check the status of an order
+To request pricing information
+r-d
+
+c-What does the man tell the woman about?
+A customization charge
+An alternative delivery option
+A similar product
+Another supplier
+r-b
+

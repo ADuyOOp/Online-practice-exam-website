@@ -1,0 +1,14 @@
+c-What is suggested about the vehicle in the advertisement?
+It is the most fuel-efficient model available.
+Its price is subject to negotiation.
+It comes with a roof rack.
+It requires some minor repairs.
+r-b
+
+c-What is NOT indicated as a feature of the Lunetta Silverback?
+Cell phone connectivity
+A navigation system
+A high-tech audio system
+Heated seats in front
+r-c
+

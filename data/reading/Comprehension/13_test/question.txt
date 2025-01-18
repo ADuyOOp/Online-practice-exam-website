@@ -1,0 +1,14 @@
+c-What is the purpose of this letter?
+To offer discounted items
+To recruit new employees
+To announce renovations
+To introduce new online features
+r-c
+
+c-What is stated about the store?
+It is temporarily moving to a new location.
+It has products available online.
+It sells items from around the world.
+It will extend its hours during the fall.
+r-b
+

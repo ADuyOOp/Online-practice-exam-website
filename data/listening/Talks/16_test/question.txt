@@ -1,0 +1,21 @@
+c-What event does the news discuss?
+A corporate merger
+A marketing campaign
+A manufacturing conference
+A restaurant expansion
+r-a
+
+c-When will the event happen?
+In April
+In July
+In November
+In December
+r-a
+
+c-What is the expected result of the event?
+More convenient accommodation
+Safer appliance products
+Increased efficiency
+More effective software
+r-c
+

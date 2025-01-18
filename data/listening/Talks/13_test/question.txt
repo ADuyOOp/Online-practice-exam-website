@@ -1,0 +1,21 @@
+c-Why is this event being held?
+To introduce a newly-released album
+To award some employees
+To promote a new product
+To thank some customers
+r-d
+
+c-Who is Glenn Cross?
+A cook
+A musician
+A gift wrapper
+A staff member
+r-b
+
+c-What does the man mean when he says, “Once again, I would like to express my gratitude”?
+The company is a newly-established company.
+The company has the most employees.
+The company had a successful year.
+The company produces famous singers.
+r-c
+

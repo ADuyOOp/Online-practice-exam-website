@@ -1,0 +1,28 @@
+c-1
+indicate
+advise
+promote
+accept
+r-d
+
+c-2
+option 1
+option 2
+option 3
+option 4
+r-b
+
+c-3
+This new role at Haymond Investments is a perfect fit.
+However, we are excited to see what he will do next.
+Mr. Pippen’s replacement has not yet been announced.
+It will also require less travel away from his family.
+r-d
+
+c-4
+Otherwise
+Even so
+Besides
+Similarly
+r-b
+

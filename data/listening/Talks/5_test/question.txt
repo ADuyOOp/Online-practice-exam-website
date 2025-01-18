@@ -1,0 +1,21 @@
+c-What is the research focused on?
+How sleep improves memory
+How caffeine influences mood
+How a certain substance affects sleep
+How fast a treatment works
+r-c
+
+c-How long will volunteers be needed?
+For two days
+For one week
+For one month
+For two months
+r-b
+
+c-What are participants expected to do?
+Avoid high stress levels
+Keep a written record
+Visit the clinic weekly
+Take medication regularly
+r-b
+

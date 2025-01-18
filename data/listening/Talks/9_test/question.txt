@@ -1,0 +1,21 @@
+c-What is this message about?
+A road construction
+A power outage
+A weather report
+A news program
+r-b
+
+c-When will the work probably be completed?
+Tonight
+Tomorrow morning
+Tomorrow night
+Next week
+r-b
+
+c-When will the announcements be updated?
+Every 10 minutes
+Every 30 minutes
+Every hour
+Every 2 hours
+r-c
+

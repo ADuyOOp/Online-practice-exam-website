@@ -1,0 +1,14 @@
+c-What is the purpose of the notice?
+To encourage residents to conserve water
+To invite tenants to an upcoming meeting
+To inform tenants about a water inspection
+To notify residents of necessary repairs
+r-d
+
+c-What is the reason for the work?
+The water is no longer safe to drink.
+The condition of pipes has worsened.
+A leak has caused flooding in the building.
+A water boiler must be replaced.
+r-b
+

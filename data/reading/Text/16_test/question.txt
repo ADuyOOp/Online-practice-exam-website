@@ -1,0 +1,28 @@
+c-1
+was committed
+is committed
+would be committing
+will have committed
+r-b
+
+c-2
+The accompanying instructions explain how to use these features.
+Our prices are much more affordable than our competitors’ products.
+Our cameras come equipped with the most popular automatic features.
+You don’t need to be a professional to use our products.
+r-c
+
+c-3
+replacement
+contract
+coupon
+refund
+r-d
+
+c-4
+furthers
+further
+furthering
+furthered
+r-b
+

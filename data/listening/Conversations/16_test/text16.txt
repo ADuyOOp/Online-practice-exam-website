@@ -1,0 +1,4 @@
+Transcript
+M: Hi, Miranda. 1 wanted to get an update from you about how the development of the new robotics software is going. I was expecting to see a prototype demonstration today, but I’ve been told that you don’t have a working model yet.
+W： I’m sorry, Tim, but no, I don’t. There is some kind of internal wiring error that keeps making the machine malfunction. I’ve taken it apart several times and cannot figure out why one part keeps freezing.
+M： I’m sorry to hear that. I think the best thing for you to do is to consult with one of the senior engineers who can troubleshoot things more easily.

@@ -1,0 +1,28 @@
+c-1
+achievements
+promotions
+lessons
+studies
+r-a
+
+c-2
+Namely
+In addition
+Consequently
+On the other hand
+r-b
+
+c-3
+This award is given out in our company each year.
+His coworkers will share his responsibilities during his absence.
+Mr. Davis was unavailable for comment when asked about his trip.
+We are all very proud of this accomplishment.
+r-d
+
+c-4
+has enjoyed
+had been enjoying
+enjoys
+will enjoy
+r-d
+

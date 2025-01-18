@@ -1,0 +1,21 @@
+c-Where is this conversation most likely taking place?
+At a robot exhibition
+At a computer system convention
+At a machinery shop
+In a manufacturing plant
+r-d
+
+c-Why is the man impressed?
+The equipment is of high quality.
+The factory is selling expensive devices.
+The robots are working instead of people.
+The machines are very clean.
+r-a
+
+c-What is the woman wondering?
+The cost of a system upgrade
+The location of a factory
+A time for installation
+A report on company’s performance
+r-a
+

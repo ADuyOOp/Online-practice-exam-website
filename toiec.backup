@@ -1,0 +1,1171 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 16.2
+-- Dumped by pg_dump version 16.2
+
+-- Started on 2025-01-17 23:27:09
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 225 (class 1259 OID 16716)
+-- Name: account; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.account (
+    user_id integer NOT NULL,
+    username character varying(255),
+    pass character varying(255),
+    role character varying(255)
+);
+
+
+ALTER TABLE public.account OWNER TO postgres;
+
+--
+-- TOC entry 226 (class 1259 OID 16721)
+-- Name: account_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.account_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.account_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4840 (class 0 OID 0)
+-- Dependencies: 226
+-- Name: account_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.account_id_seq OWNED BY public.account.user_id;
+
+
+--
+-- TOC entry 218 (class 1259 OID 16659)
+-- Name: exam; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.exam (
+    exam_id integer NOT NULL,
+    total_question integer,
+    duration integer,
+    skill_id integer
+);
+
+
+ALTER TABLE public.exam OWNER TO postgres;
+
+--
+-- TOC entry 217 (class 1259 OID 16658)
+-- Name: exam_exam_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.exam_exam_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.exam_exam_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4841 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: exam_exam_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.exam_exam_id_seq OWNED BY public.exam.exam_id;
+
+
+--
+-- TOC entry 220 (class 1259 OID 16671)
+-- Name: part; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.part (
+    part_id integer NOT NULL,
+    partname character varying(255),
+    num_question integer,
+    exam_id integer
+);
+
+
+ALTER TABLE public.part OWNER TO postgres;
+
+--
+-- TOC entry 219 (class 1259 OID 16670)
+-- Name: part_part_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.part_part_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.part_part_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4842 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: part_part_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.part_part_id_seq OWNED BY public.part.part_id;
+
+
+--
+-- TOC entry 224 (class 1259 OID 16697)
+-- Name: question; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.question (
+    question_id integer NOT NULL,
+    content character varying(255),
+    option character varying(255),
+    result character varying(255),
+    order_question integer,
+    answer character varying(255),
+    test_id integer
+);
+
+
+ALTER TABLE public.question OWNER TO postgres;
+
+--
+-- TOC entry 223 (class 1259 OID 16696)
+-- Name: question_question_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.question_question_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.question_question_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4843 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: question_question_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.question_question_id_seq OWNED BY public.question.question_id;
+
+
+--
+-- TOC entry 216 (class 1259 OID 16652)
+-- Name: skill; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.skill (
+    skill_id integer NOT NULL,
+    skill_name character varying(255),
+    passing_core integer
+);
+
+
+ALTER TABLE public.skill OWNER TO postgres;
+
+--
+-- TOC entry 215 (class 1259 OID 16651)
+-- Name: skill_skill_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.skill_skill_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.skill_skill_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4844 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: skill_skill_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.skill_skill_id_seq OWNED BY public.skill.skill_id;
+
+
+--
+-- TOC entry 222 (class 1259 OID 16683)
+-- Name: test; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.test (
+    test_id integer NOT NULL,
+    audioname character varying(255),
+    imagename character varying(255),
+    textname character varying(255),
+    order_test integer,
+    part_id integer
+);
+
+
+ALTER TABLE public.test OWNER TO postgres;
+
+--
+-- TOC entry 221 (class 1259 OID 16682)
+-- Name: test_test_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.test_test_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.test_test_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 4845 (class 0 OID 0)
+-- Dependencies: 221
+-- Name: test_test_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.test_test_id_seq OWNED BY public.test.test_id;
+
+
+--
+-- TOC entry 4660 (class 2604 OID 16662)
+-- Name: exam exam_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.exam ALTER COLUMN exam_id SET DEFAULT nextval('public.exam_exam_id_seq'::regclass);
+
+
+--
+-- TOC entry 4661 (class 2604 OID 16674)
+-- Name: part part_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.part ALTER COLUMN part_id SET DEFAULT nextval('public.part_part_id_seq'::regclass);
+
+
+--
+-- TOC entry 4663 (class 2604 OID 16700)
+-- Name: question question_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.question ALTER COLUMN question_id SET DEFAULT nextval('public.question_question_id_seq'::regclass);
+
+
+--
+-- TOC entry 4659 (class 2604 OID 16655)
+-- Name: skill skill_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.skill ALTER COLUMN skill_id SET DEFAULT nextval('public.skill_skill_id_seq'::regclass);
+
+
+--
+-- TOC entry 4662 (class 2604 OID 16686)
+-- Name: test test_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.test ALTER COLUMN test_id SET DEFAULT nextval('public.test_test_id_seq'::regclass);
+
+
+--
+-- TOC entry 4833 (class 0 OID 16716)
+-- Dependencies: 225
+-- Data for Name: account; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.account (user_id, username, pass, role) FROM stdin;
+1	admin1	12345	admin
+2	staff1	67890	staff
+\.
+
+
+--
+-- TOC entry 4826 (class 0 OID 16659)
+-- Dependencies: 218
+-- Data for Name: exam; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.exam (exam_id, total_question, duration, skill_id) FROM stdin;
+60	36	40	1
+61	30	35	2
+62	36	40	1
+63	30	35	2
+64	36	40	1
+65	30	35	2
+66	36	40	1
+67	30	35	2
+68	36	40	1
+69	30	35	2
+70	36	40	1
+71	30	35	2
+\.
+
+
+--
+-- TOC entry 4828 (class 0 OID 16671)
+-- Dependencies: 220
+-- Data for Name: part; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.part (part_id, partname, num_question, exam_id) FROM stdin;
+182	Photographs	6	60
+183	Q&A	6	60
+184	Conversations	12	60
+185	Talks	12	60
+186	Sentences	6	61
+187	Text	16	61
+188	Comprehension	8	61
+189	Photographs	6	62
+190	Q&A	6	62
+191	Conversations	12	62
+192	Talks	12	62
+193	Sentences	6	63
+194	Text	16	63
+195	Comprehension	8	63
+196	Photographs	6	64
+197	Q&A	6	64
+198	Conversations	12	64
+199	Talks	12	64
+200	Sentences	6	65
+201	Text	16	65
+202	Comprehension	8	65
+203	Photographs	6	66
+204	Q&A	6	66
+205	Conversations	12	66
+206	Talks	12	66
+207	Sentences	6	67
+208	Text	16	67
+209	Comprehension	8	67
+210	Photographs	6	68
+211	Q&A	6	68
+212	Conversations	12	68
+213	Talks	12	68
+214	Sentences	6	69
+215	Text	16	69
+216	Comprehension	8	69
+217	Photographs	6	70
+218	Q&A	6	70
+219	Conversations	12	70
+220	Talks	12	70
+221	Sentences	6	71
+222	Text	16	71
+223	Comprehension	8	71
+\.
+
+
+--
+-- TOC entry 4832 (class 0 OID 16697)
+-- Dependencies: 224
+-- Data for Name: question; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.question (question_id, content, option, result, order_question, answer, test_id) FROM stdin;
+2117		option a#option b#option c#option d	c	1	\N	1111
+1922		option a#option b#option c#option d	c	2	b	1010
+1923		option a#option b#option c#option d	a	3	a	1011
+1924		option a#option b#option c#option d	d	4	c	1012
+1925		option a#option b#option c#option d	a	5	a	1013
+1926		option a#option b#option c#option d	c	6	d	1014
+1927		option a#option b#option c	a	7	b	1015
+1928		option a#option b#option c	b	8	c	1016
+1929		option a#option b#option c	c	9	a	1017
+1930		option a#option b#option c	c	10	b	1018
+1931		option a#option b#option c	c	11	a	1019
+1932		option a#option b#option c	b	12	b	1020
+1934	What did the woman do last week?	She had a business meeting with Mr. Ransh.#She made changes in a blueprint design.#She sent an e-mail to Mr. Ransh.#She talked with Mr. Ransh on the phone.	c	14	d	1021
+1935	What will the woman most likely do next?	Call Mr. Ransh#Send a document#Visit Mr. Ransh#Redesign the blueprints	b	15	b	1021
+1936	What does the woman want to find?	Some money#A file#An office key#A check	b	16	d	1022
+1937	Where most likely is Patrick?	At his home#In his office#At a restaurant#On a business trip	d	17	c	1022
+1938	What will John most likely do next?	Check his office#Bring Patrick#Postpone a meeting#Reply to a letter	d	18	d	1022
+1939	What is the woman concerned about?	She is late for the conference.#She cannot find her documents.#She needs to practice a presentation speech.#Her bag is missing.	b	19	c	1023
+1940	What does the woman suggest the man do?	Help her find some materials#Go to her office#Prepare for the meeting#Rewrite some papers	c	20		1023
+1941	Where will the woman go next?	To the conference room#To her house#To her office#To a copying store	c	21		1023
+1942	What are the speakers talking about?	Food on the menu#A dinner for guests#A good place to eat#A presentation coming up next month	b	22		1024
+1943	What will happen at 8 o’clock?	A presentation will take place as scheduled.#They will go home.#Food will be served.#They will call the caterer.	c	23		1024
+1856		option a#option b#option c#option d	c	1	\N	975
+1857		option a#option b#option c#option d	a	2	\N	976
+1858		option a#option b#option c#option d	d	3	\N	977
+1859		option a#option b#option c#option d	a	4	\N	978
+1860		option a#option b#option c#option d	c	5	\N	979
+1861		option a#option b#option c#option d	b	6	\N	980
+1862		option a#option b#option c	c	7	\N	981
+1863		option a#option b#option c	c	8	\N	982
+1864		option a#option b#option c	a	9	\N	983
+1865		option a#option b#option c	b	10	\N	984
+1866		option a#option b#option c	b	11	\N	985
+1867		option a#option b#option c	b	12	\N	986
+1868	Why is Mr. Ransh upset?	He did not receive a document.#The woman canceled an appointment.#He doesn’t like the woman’s design.#The construction of a building has cancelled.	a	13	\N	987
+1869	What did the woman do last week?	She had a business meeting with Mr. Ransh.#She made changes in a blueprint design.#She sent an e-mail to Mr. Ransh.#She talked with Mr. Ransh on the phone.	c	14	\N	987
+1870	What will the woman most likely do next?	Call Mr. Ransh#Send a document#Visit Mr. Ransh#Redesign the blueprints	b	15	\N	987
+1871	What is the conversation about?	Advertising a website#Making schedules#Improving interview skills#Organizing a conference	b	16	\N	988
+1872	What will happen on Thursday?	Job interviews will take place.#They will attend a conference.#A website will be renewed.#They will leave on a business trip.	a	17	\N	988
+1873	What are clients complaining about?	A website#A building’s design#A schedule for job interview#A conference date	a	18	\N	988
+1874	Why does the woman indicate she is pleased?	She came in first in a prize draw.#She developed a sales pitch.#She recently won a new client.#She reached a maximum bonus.	d	19	\N	989
+1875	What will be the topic of the woman’s presentations?	Creating memorable advertisements#Analyzing customer needs#Gathering feedback online#Developing new products	b	20	\N	989
+1876	When will the introductory lecture be given?	On September 1#On September 2#On September 6#On September 10	b	21	\N	989
+1877	Where is the conversation taking place?	At a park#At a fitness facility#At an institute#At a medical center	b	22	\N	990
+1878	What is the man preparing for?	A football tryout#A basketball tournament#An upcoming marathon#A tennis competition	c	23	\N	990
+1879	What does the woman offer the man?	A class schedule#A private session#A free membership#Some used equipment	a	24	\N	990
+1880	What does the man mean when he says, "More to the point, that makes us one of the oldest wine manufacturers in the country."?	Coppola is a new technology company.#Coppola uses the new manufacturing methods.#Coppola has a long history in the industry.#Coppola is known for its various products.	c	25	\N	991
+1881	What does Coppola make?	Cigarettes#Protective clothing#Vehicles#Liquor	d	26	\N	991
+1882	What are the listeners asked to do?	Attend a reception#Board a bus on time#Put on safety equipment#Import some products	c	27	\N	991
+1883	Who most likely is the speaker addressing?	Job applicants#Contest entrants#Marketing students#New staff members	d	28	\N	992
+1884	What does the speaker mean when he says, “Let’s get to that”?	Some responsibilities will be explained.#A campaign is expected to succeed.#Some goals are likely to be achieved.#The group will move to another place.	a	29	\N	992
+1885	What will the speaker do next?	Introduce Mr. Eldon to the trainees#Explain how to resolve problems#Show a video of past advertisements#Distribute some instructional materials	c	30	\N	992
+1886	Who most likely is Ted Costello?	A newspaper reporter#A computer scientist#A radio host#A research assistant	c	31	\N	993
+1887	What does Dr. Alfson specialize in?	Music education#Market research#Mergers and acquisitions#The study of language	d	32	\N	993
+1888	What will happen on August 4?	Dr. Alfson’s new book will be available.#A new research project will be launched.#The radio will broadcast an interview.#The results of a study will be announced.	a	33	\N	993
+1957	1	excursion#itinerary#reservation#proposal	a	1	\N	1029
+1958	1	is located#locates#locating#was locating	a	2	\N	1030
+1959	1	arriving#cautioning#sympathizing#achieving	d	3	\N	1031
+1960	1	strength#strengthens#stronger#strongly	c	4	\N	1032
+1961	1	Neither#Every#Each#All	d	5	\N	1033
+1962	1	next#closest#nearby#brief	c	6	\N	1034
+1963	1	Afterward#In order to#Consequently#Based on	d	7	\N	1035
+1964	2	The committee would like to meet with you in person.#The hiring manager will review all portfolios next week.#As a shortlisted candidate, you will need to attend an interview.#Please submit three work-routed references beforehand.	c	8	\N	1035
+1965	3	were asked#will be asked#had asked#would have asked	b	9	\N	1035
+1966	4	ourselves#myself#us#you	d	10	\N	1035
+1967	1	indicate#advise#promote#accept	d	11	\N	1036
+1968	2	option 1#option 2#option 3#option 4	b	12	\N	1036
+1969	3	This new role at Haymond Investments is a perfect fit.#However, we are excited to see what he will do next.#Mr. Pippen’s replacement has not yet been announced.#It will also require less travel away from his family.	d	13	\N	1036
+1970	4	Otherwise#Even so#Besides#Similarly	b	14	\N	1036
+1971	1	receive#will be received#was received#have received	d	15	\N	1037
+1972	3	assigning#containing#explaining#understanding	a	17	\N	1037
+1973	4	order#idea#collection#development	b	18	\N	1037
+1974	1	portable#reliable#notable#approachable	b	19	\N	1038
+1975	2	much too#as well#of these#such as	d	20	\N	1038
+1976	3	This gift is a token of our appreciation for your patience.#The blade should be stored in a cabinet or on the countertop.#Be sure to follow all safety procedures as instructed.#It will be shipped immediately at no additional cost to you.	a	21	\N	1038
+1977	4	consult#correct#reuse#adapt	a	22	\N	1038
+1978	What is indicated about Lagrange Clothing?	Its global sales have improved considerably.#It was originally founded in Brussels.#It has previously focused on domestic sales.#It intends to open a manufacturing plant in London.	c	23	\N	1039
+1979	What is suggested about Lagrange Clothing’s European stores?	They will primarily sell world-famous clothing brands.#They will be the largest of the company’s locations.#They have recently been visited by Peter Radcliffe.#They are scheduled to open for business next March.	d	24	\N	1039
+1980	What is the purpose of this letter?	To offer discounted items#To recruit new employees#To announce renovations#To introduce new online features	c	25	\N	1040
+1981	What is stated about the store?	It is temporarily moving to a new location.#It has products available online.#It sells items from around the world.#It will extend its hours during the fall.	b	26	\N	1040
+1982	What is the purpose of Mr. Gibson’s e-mail?	To schedule a management seminar#To respond to an inquiry from a potential client#To announce the new services of a company#To give advice on employee recruitment	b	27	\N	1041
+1983	What is indicated about Ace HR Consulting, Inc.?	It will merge with a well-established company.#It has moved its main office to the U.K.#It serves customers in more than one country.#It has purchased several graphic design	c	28	\N	1041
+1984	What is the purpose of the e-mail?	To report a problem with some paperwork#To invite an applicant for an interview#To request further information#To explain a hiring decision	d	29	\N	1042
+1985	What is indicated about Ms. Wan?	She had an impressive resume.#She is currently working part-time.#She missed an important deadline.#She scored poorly on a skills test.	b	30	\N	1042
+1986		option a#option b#option c#option d	a	1	\N	1043
+1987		option a#option b#option c#option d	a	2	\N	1044
+1988		option a#option b#option c#option d	b	3	\N	1045
+1989		option a#option b#option c#option d	c	4	\N	1046
+1990		option a#option b#option c#option d	d	5	\N	1047
+1991		option a#option b#option c#option d	a	6	\N	1048
+1992		option a#option b#option c	b	7	\N	1049
+1993		option a#option b#option c	b	8	\N	1050
+1994		option a#option b#option c	a	9	\N	1051
+1995		option a#option b#option c	c	10	\N	1052
+1996		option a#option b#option c	b	11	\N	1053
+1997		option a#option b#option c	c	12	\N	1054
+1998	Where does the woman most likely work?	At a shipping company#At a warehouse#At a contracting company#At a consulting firm	c	13	\N	1055
+1999	What is the purpose of the woman’s call?	To change the size of an item#To inquire about delivery options#To check the status of an order#To request pricing information	d	14	\N	1055
+1945	What caused a performance delay?	A loss of power#Some late arrivals#Malfunctioning equipment#A scheduling error	b	25		1025
+1946	What can listeners do near the entrance?	Get their programs autographed#Enjoy light refreshments#Take photos of performers#Purchase musical recordings	d	26		1025
+1948	What is the purpose of the advertisement?	To promote a grand opening#To introduce a new chef#To announce menu changes#To report a change in ownership	a	28		1026
+1949	Where is the business located?	Opposite a residential building#In the city center#Near a shopping mall#Next to a department store	a	29		1026
+1950	What does the woman mean when she says, “Here’s the answer”?	She is endorsing a professional chef.#She is reviewing a particular dish.#She is recommending a business.#She is confirming a location.	c	30		1026
+1951	Where does the speaker most likely work?	At a research laboratory#At a government office#At a television studio#At an advertising agency	c	31		1027
+1952	What is impressive about Mr. Jackson?	His writing skills#His educational background#His contribution to his company#His extensive experience	a	32		1027
+1953	What does the speaker offer to do?	Extend a submission deadline#Provide a reference letter#Review Mr. Jackson’s resume#Give information to a coworker	d	33		1027
+1954	What is this message about?	A road construction#A power outage#A weather report#A news program	b	34		1028
+1955	When will the work probably be completed?	Tonight#Tomorrow morning#Tomorrow night#Next week	b	35		1028
+1956	When will the announcements be updated?	Every 10 minutes#Every 30 minutes#Every hour#Every 2 hours	c	36		1028
+2000	What does the man tell the woman about?	A customization charge#An alternative delivery option#A similar product#Another supplier	b	15	\N	1055
+2001	Where will the woman make a transfer?	Coventry#Leicester#Birmingham#Sheffield	c	16	\N	1056
+2002	What most likely is the man’s job?	Train attendant#Bus driver#Cafe worker#Tour guide	a	17	\N	1056
+2003	What does the man offer to do?	Guide the woman to her seat#Announce the stop before arrival#Show the woman station signs#Give the woman a map	d	18	\N	1056
+2004	Who is the woman?	A restaurant manager#A presentation participant#A workshop organizer#A cook	c	19	\N	1057
+2005	What does the woman mean when she says, “I have a weekly meeting soon”?	She cannot talk with the man for long.#She will discuss the problem soon.#She will invite the man to a weekly meeting.#She will participate in the workshop next Friday.	a	20	\N	1057
+2006	What does Kimmy additionally want?	A cheaper price#Additional food items#Some alcohol#Dinner menus	b	21	\N	1057
+2007	Where does the man work?	At a community center#At a museum#At a university#At a library	d	22	\N	1058
+2008	What does the woman want to do?	Research modern poets#Purchase a ticket#Conduct some experiments#Sign up for evening classes	a	23	\N	1058
+2009	What does the man offer to do?	Give a private tour#Provide a discount#Send her some materials#Contact a tour guide	a	24	\N	1058
+2010	Why is this event being held?	To introduce a newly-released album#To award some employees#To promote a new product#To thank some customers	d	25	\N	1059
+2011	Who is Glenn Cross?	A cook#A musician#A gift wrapper#A staff member	b	26	\N	1059
+2012	What does the man mean when he says, “Once again, I would like to express my gratitude”?	The company is a newly-established company.#The company has the most employees.#The company had a successful year.#The company produces famous singers.	c	27	\N	1059
+2013	What does the man mean when he says, "More to the point, that makes us one of the oldest wine manufacturers in the country."?	Coppola is a new technology company.#Coppola uses the new manufacturing methods.#Coppola has a long history in the industry.#Coppola is known for its various products.	c	28	\N	1060
+2014	What does Coppola make?	Cigarettes#Protective clothing#Vehicles#Liquor	d	29	\N	1060
+2015	What are the listeners asked to do?	Attend a reception#Board a bus on time#Put on safety equipment#Import some products	c	30	\N	1060
+2016	Who most likely is the speaker addressing?	Job applicants#Contest entrants#Marketing students#New staff members	d	31	\N	1061
+2017	What does the speaker mean when he says, “Let’s get to that”?	Some responsibilities will be explained.#A campaign is expected to succeed.#Some goals are likely to be achieved.#The group will move to another place.	a	32	\N	1061
+2018	What will the speaker do next?	Introduce Mr. Eldon to the trainees#Explain how to resolve problems#Show a video of past advertisements#Distribute some instructional materials	c	33	\N	1061
+2019	What is this message about?	A road construction#A power outage#A weather report#A news program	b	34	\N	1062
+2020	When will the work probably be completed?	Tonight#Tomorrow morning#Tomorrow night#Next week	b	35	\N	1062
+2021	When will the announcements be updated?	Every 10 minutes#Every 30 minutes#Every hour#Every 2 hours	c	36	\N	1062
+2022	1	who#whose#they#what	a	1	\N	1063
+2023	1	quiet#quietly#more quiet#more quietly	d	2	\N	1064
+2024	1	excursion#itinerary#reservation#proposal	a	3	\N	1065
+2025	1	recently#financially#permanently#hardly	a	4	\N	1066
+2026	1	staged#referred#held#went	c	5	\N	1067
+2027	1	arriving#cautioning#sympathizing#achieving	d	6	\N	1068
+2028	1	will hold#will be held#was held#has held	b	7	\N	1069
+2029	2	conducting#behaving#accompanying#processing	a	8	\N	1069
+2030	3	appropriate#appropriates#appropriation#appropriately	d	9	\N	1069
+2031	4	Many applicants possess, at minimum, a junior college degree.#Students have a strong desire to change career paths.#Applicants have passed at least one college-level science course,#Candidates are willing to engage in this rigorous program.	a	10	\N	1069
+2032	1	functionally#functional#to function#is functioning	d	11	\N	1070
+2033	2	problem#charge#meeting#decision	a	12	\N	1070
+2034	3	Turning your computer off and back on won’t address the issue.#Also tell us what you were doing immediately prior to it.#Moreover, improper connections could be responsible for the error.#We will try to answer any questions you have about your device.	b	13	\N	1070
+2035	4	casually#collectively#frequently#promptly	d	14	\N	1070
+2036	1	indicate#advise#promote#accept	d	15	\N	1071
+2037	2	option 1#option 2#option 3#option 4	b	16	\N	1071
+2038	3	This new role at Haymond Investments is a perfect fit.#However, we are excited to see what he will do next.#Mr. Pippen’s replacement has not yet been announced.#It will also require less travel away from his family.	d	17	\N	1071
+2039	4	Otherwise#Even so#Besides#Similarly	b	18	\N	1071
+2040	1	Afterward#In order to#Consequently#Based on	d	19	\N	1072
+2041	2	The committee would like to meet with you in person.#The hiring manager will review all portfolios next week.#As a shortlisted candidate, you will need to attend an interview.#Please submit three work-routed references beforehand.	c	20	\N	1072
+2042	3	were asked#will be asked#had asked#would have asked	b	21	\N	1072
+2043	4	ourselves#myself#us#you	d	22	\N	1072
+2044	Where would this information most likely be found?	In a user manual#On a receipt#On a product’s packaging#In an advertisement	a	23	\N	1073
+2045	According to the information, what is provided on the Web site?	Antivirus software#A copy of a publication#Operating instructions#Detailed images	c	24	\N	1073
+2046	What problem does Ms. Adkins mention?	Her warranty has been misplaced.#An electronic device is malfunctioning.#Her pictures were rejected by a magazine.#She is not sure which model she needs.	b	25	\N	1074
+2047	What is true about the Viewsnap R-400?	It is sold with an adjustable lens.#It takes black and white pictures.#It is designed for outdoor photography.#Its shutter should be dusted regularly.	c	26	\N	1074
+2048	What is the purpose of the notice?	To encourage residents to conserve water#To invite tenants to an upcoming meeting#To inform tenants about a water inspection#To notify residents of necessary repairs	d	27	\N	1075
+2049	What is the reason for the work?	The water is no longer safe to drink.#The condition of pipes has worsened.#A leak has caused flooding in the building.#A water boiler must be replaced.	b	28	\N	1075
+2118		option a#option b#option c#option d	a	2	\N	1112
+1889	What is the broadcast mainly about?	A sports match#A theater production#A movie premiere#A rock concert	a	34	\N	994
+1890	What is indicated about the event?	It has been postponed.#It happens once a year.#There was a change in the venue.#There are no tickets left.	d	35	\N	994
+1891	When is the event scheduled to take place?	After the news#This evening#Tomorrow night#In two days	c	36	\N	994
+1920	What is suggested about Pedro’s Cantina?	It is closed on Mondays.#It has locations throughout South Carolina.#It features live music daily.#It has a large kitchen staff.	a	30	\N	1008
+1892	1	next#closest#nearby#brief	c	1		995
+1893	1	they#their#them#theirs	b	2		996
+1894	1	who#whose#they#what	a	3		997
+1895	1	up#to#of#out	b	4		998
+1896	1	amaze#amazed#amazement#amazingly	d	5		999
+1897	1	strength#strengthens#stronger#strongly	c	6		1000
+1898	1	was not#has not been#will not be#would not have been	c	7		1001
+1899	2	Our office location will also remain the same.#We apologize for any inconvenience and thank you for understanding.#Please be aware that our phone number has been changed.#We are still waiting for our new telephone and fax numbers.	c	8		1001
+1900	3	here#now#still#during	b	9		1001
+1901	4	reminder#delivery#cleaning#advice	d	10		1001
+1902	1	receive#will be received#was received#have received	d	11		1002
+1903	3	assigning#containing#explaining#understanding	a	13		1002
+1904	4	order#idea#collection#development	b	14		1002
+1905	1	functionally#functional#to function#is functioning	d	15		1003
+1906	2	problem#charge#meeting#decision	a	16		1003
+1907	3	Turning your computer off and back on won’t address the issue.#Also tell us what you were doing immediately prior to it.#Moreover, improper connections could be responsible for the error.#We will try to answer any questions you have about your device.	b	17		1003
+1908	4	casually#collectively#frequently#promptly	d	18		1003
+1909	1	retrieval#motivation#transmission#agreement	c	19		1004
+1910	2	Please check your sent message folder to verify.#Unfortunately, the cause of the error is unknown.#There have been some interruptions to our Internet service recently.#We cannot confirm that the address is a valid one.	b	20		1004
+1911	3	has been deleting#be deleting#to be deleted#has been deleted	d	21		1004
+1912	4	any#his#their#other	a	22		1004
+1913	Who is Mike Bunders?	An entertainer#A singer#A manager#A producer	a	23		1005
+1914	At 1:38 P.M., what does Ms. Ammon mean when she writes, “That’s great!”?	She will call the broadcasting studio.#She will watch the show tomorrow night.#She will work overtime at 9 P.M.#She will give some information to him.	b	24		1005
+1915	What is the purpose of Mr. Gibson’s e-mail?	To schedule a management seminar#To respond to an inquiry from a potential client#To announce the new services of a company#To give advice on employee recruitment	b	25		1006
+1916	What is indicated about Ace HR Consulting, Inc.?	It will merge with a well-established company.#It has moved its main office to the U.K.#It serves customers in more than one country.#It has purchased several graphic design	c	26		1006
+1917	Why can’t Mr. Johns go to the movie?	He already saw the movie.#He has to work on his speech.#He has to go to work.#He’s going to go to the movie next week.	b	27		1007
+1918	What does Ms. Hon recommend Mr. Johns?	To arrange his research and his thoughts as he writes#To research a lot before he makes a presentation#To write an outline for his speech#To plug in facts as much as possible.	c	28		1007
+1919	What is the announcement about?	A trip to Mexico#Dishes that are being sold at a discount#A restaurant opening for business#Changes to a schedule	c	29		1008
+2050	Why can’t Mr. Johns go to the movie?	He already saw the movie.#He has to work on his speech.#He has to go to work.#He’s going to go to the movie next week.	b	29	\N	1076
+2051	What does Ms. Hon recommend Mr. Johns?	To arrange his research and his thoughts as he writes#To research a lot before he makes a presentation#To write an outline for his speech#To plug in facts as much as possible.	c	30	\N	1076
+2052		option a#option b#option c#option d	d	1	\N	1077
+2053		option a#option b#option c#option d	d	2	\N	1078
+2054		option a#option b#option c#option d	a	3	\N	1079
+2055		option a#option b#option c#option d	b	4	\N	1080
+2056		option a#option b#option c#option d	c	5	\N	1081
+2057		option a#option b#option c#option d	a	6	\N	1082
+2058		option a#option b#option c	c	7	\N	1083
+2059		option a#option b#option c	b	8	\N	1084
+2060		option a#option b#option c	a	9	\N	1085
+2061	\r	option a#option b#option c	c	10	\N	1086
+2062		option a#option b#option c	b	11	\N	1087
+2063		option a#option b#option c	c	12	\N	1088
+2064	Who is the woman?	A restaurant manager#A presentation participant#A workshop organizer#A cook	c	13	\N	1089
+2065	What does the woman mean when she says, “I have a weekly meeting soon”?	She cannot talk with the man for long.#She will discuss the problem soon.#She will invite the man to a weekly meeting.#She will participate in the workshop next Friday.	a	14	\N	1089
+2066	What does Kimmy additionally want?	A cheaper price#Additional food items#Some alcohol#Dinner menus	b	15	\N	1089
+2119		option a#option b#option c#option d	d	3	\N	1113
+2067	What is the woman concerned about?	She is late for the conference.#She cannot find her documents.#She needs to practice a presentation speech.#Her bag is missing.	b	16	\N	1090
+2068	What does the woman suggest the man do?	Help her find some materials#Go to her office#Prepare for the meeting#Rewrite some papers	c	17	\N	1090
+2069	Where will the woman go next?	To the conference room#To her house#To her office#To a copying store	c	18	\N	1090
+2070	What problem is the man calling about?	A customer account has been canceled.#An appliance has not arrived.#A machine is missing some parts.#A device is out of order.	d	19	\N	1091
+2071	What does the woman say she will do?	Contact the manufacturer#Send a professional#Replace the faulty item#Look online for a solution	b	20	\N	1091
+2072	What does the woman recommend doing?	Using different model#Removing items from a machine#Contacting a manufacturer’s helpline#Attempting a home repair	b	21	\N	1091
+2073	What are the speakers talking about?	Food on the menu#A dinner for guests#A good place to eat#A presentation coming up next month	b	22	\N	1092
+2074	What will happen at 8 o’clock?	A presentation will take place as scheduled.#They will go home.#Food will be served.#They will call the caterer.	c	23	\N	1092
+2075	What will probably happen next?	They will do the presentation.#They will go to the caterer.#They will go to a restaurant.#They will cancel the event.	a	24	\N	1092
+2076	Why is this event being held?	To introduce a newly-released album#To award some employees#To promote a new product#To thank some customers	d	25	\N	1093
+2077	Who is Glenn Cross?	A cook#A musician#A gift wrapper#A staff member	b	26	\N	1093
+2078	What does the man mean when he says, “Once again, I would like to express my gratitude”?	The company is a newly-established company.#The company has the most employees.#The company had a successful year.#The company produces famous singers.	c	27	\N	1093
+2079	Why is the woman calling?	To arrange the interview time#To request an application form#To accept a job offer#To advertise a new hospital plan	a	28	\N	1094
+2080	What is the speaker’s occupation?	An academic instructor#A secretary#A doctor#A hiring director	d	29	\N	1094
+2081	What does the woman ask the man to do?	Fax some documents#Schedule an installation date#Order invitations#Return a telephone call	d	30	\N	1094
+2082	Who most likely is Ted Costello?	A newspaper reporter#A computer scientist#A radio host#A research assistant	c	31	\N	1095
+2083	What does Dr. Alfson specialize in?	Music education#Market research#Mergers and acquisitions#The study of language	d	32	\N	1095
+2084	What will happen on August 4?	Dr. Alfson’s new book will be available.#A new research project will be launched.#The radio will broadcast an interview.#The results of a study will be announced.	a	33	\N	1095
+2085	What caused a performance delay?	A loss of power#Some late arrivals#Malfunctioning equipment#A scheduling error	b	34	\N	1096
+2086	What can listeners do near the entrance?	Get their programs autographed#Enjoy light refreshments#Take photos of performers#Purchase musical recordings	d	35	\N	1096
+2087	What can be found on the back of the program?	Promotional coupons for events#An explanation of an exchange policy#A description of an upcoming show#Information about becoming a member	d	36	\N	1096
+2088	1	quiet#quietly#more quiet#more quietly	d	1	\N	1097
+2089	1	both#also#nor#or	d	2	\N	1098
+2090	1	recently#financially#permanently#hardly	a	3	\N	1099
+2091	1	they#their#them#theirs	b	4	\N	1100
+2092	1	arriving#cautioning#sympathizing#achieving	d	5	\N	1101
+2093	1	immediately#unexpectedly#exactly#attentively	b	6	\N	1102
+2094	1	look into#pass up#agree with#sort out	b	7	\N	1103
+2095	2	inclusion#includes#including#included	c	8	\N	1103
+2096	3	operation#operated#operational#operationally	c	9	\N	1103
+2097	4	Webster even plans to open a third store early next year.#Thanks to its success, she intends to pay investors back next year.#She credits her success to the training she received at Vanderbilt.#Her jewelry is expensive, but the quality is worth the price.	a	10	\N	1103
+2098	1	protect#protection#protecting#protective	c	11	\N	1104
+2099	2	contact#prevent#reward#submit	a	12	\N	1104
+2100	3	continue#propose#offer#start	a	13	\N	1104
+2101	4	For the full experience, please visit our store.#We wish you a pleasant stay at John Bailey Finance.#We look forward to doing regular business with us.#Thank you for using our financial services online.	d	14	\N	1104
+2102	1	will hold#will be held#was held#has held	b	15	\N	1105
+2103	2	conducting#behaving#accompanying#processing	a	16	\N	1105
+2104	3	appropriate#appropriates#appropriation#appropriately	d	17	\N	1105
+2105	4	Many applicants possess, at minimum, a junior college degree.#Students have a strong desire to change career paths.#Applicants have passed at least one college-level science course,#Candidates are willing to engage in this rigorous program.	a	18	\N	1105
+2106	1	receive#will be received#was received#have received	d	19	\N	1106
+2107	3	assigning#containing#explaining#understanding	a	21	\N	1106
+2108	4	order#idea#collection#development	b	22	\N	1106
+2109	What is the purpose of the article?	To advertise a property for lease#To recruit staff for a restaurant#To review a certain type of food#To publicize the opening of a new restaurant	d	23	\N	1107
+2110	What is NOT mentioned about Luigi’s Kitchen?	It is located in a renovated building.#Its food is competitively priced.#It is owned by Chez Mario’s.#It is near several other restaurants.	c	24	\N	1107
+2111	Why is Ms. Moorefield writing to Mr. Maher?	To schedule an appointment for maintenance#To apologize to him for an inconvenience#To thank him for referring the company as a friend#To announce that cable service will be interrupted	b	25	\N	1108
+2112	What is indicated about QCV Cinemas?	It has recently experienced technical difficulties.#It is owned by Brooke Moorefield.#It has several locations.#It will close in 2 weeks for repair.	c	26	\N	1108
+2113	What is being advertised?	An office interior design service#A home-landscaping businesses#A course in floral design#A book on interior design	a	27	\N	1109
+2114	What does Office Decor Inc. NOT advertise in the notice?	A wide choice of design options#Free consultation for new customers#Shipment of imported flowers#An in-house design team	c	28	\N	1109
+2115	What is the purpose of the advertisement?	To promote a fitness center#To recruit personal fitness instructors#To announce a sports competition#To publicize a self-improvement magazine	a	29	\N	1110
+2116	What information is NOT provided in the advertisement?	How to register#How the program is designed#What the monthly payment is#When the offer expires	c	30	\N	1110
+2120		option a#option b#option c#option d	d	4	\N	1114
+2121		option a#option b#option c#option d	b	5	\N	1115
+2122		option a#option b#option c#option d	c	6	\N	1116
+2123		option a#option b#option c	b	7	\N	1117
+2124		option a#option b#option c	c	8	\N	1118
+2125		option a#option b#option c	a	9	\N	1119
+2126		option a#option b#option c	c	10	\N	1120
+2127		option a#option b#option c	c	11	\N	1121
+2128		option a#option b#option c	b	12	\N	1122
+2129	How do the speakers know each other?	They graduated from the same university.#They are business colleagues.#They are currently on the same chess team.#They are professors at a college.	a	13	\N	1123
+2130	How many years ago were the speakers at this place?	Five#Ten#Fifteen#Fifty	c	14	\N	1123
+2131	According to the woman, what is one of her favorite memories?	The graduation ceremony#Studying with friends#Winning a prize#Walking around the campus	c	15	\N	1123
+2132	What is the woman concerned about?	She is late for the conference.#She cannot find her documents.#She needs to practice a presentation speech.#Her bag is missing.	b	16	\N	1124
+2133	What does the woman suggest the man do?	Help her find some materials#Go to her office#Prepare for the meeting#Rewrite some papers	c	17	\N	1124
+2134	Where will the woman go next?	To the conference room#To her house#To her office#To a copying store	c	18	\N	1124
+2135	Who is Mr. Stevens?	A customer service agent#An online shopper#A lighting specialist#A corporate buyer	b	19	\N	1125
+2136	What is the man asked to do?	Give an invoice number#Confirm credit card details#Wait for a return phone call#Explain a complicated process	a	20	\N	1125
+2137	What will the man receive?	A full refund#A lighting control device#An apology letter#A new invoice	b	21	\N	1125
+2138	What is the conversation about?	Advertising a website#Making schedules#Improving interview skills#Organizing a conference	b	22	\N	1126
+2139	What will happen on Thursday?	Job interviews will take place.#They will attend a conference.#A website will be renewed.#They will leave on a business trip.	a	23	\N	1126
+2140	What are clients complaining about?	A website#A building’s design#A schedule for job interview#A conference date	a	24	\N	1126
+2141	Why is the woman calling?	To arrange the interview time#To request an application form#To accept a job offer#To advertise a new hospital plan	a	25	\N	1127
+2142	What is the speaker’s occupation?	An academic instructor#A secretary#A doctor#A hiring director	d	26	\N	1127
+2143	What does the woman ask the man to do?	Fax some documents#Schedule an installation date#Order invitations#Return a telephone call	d	27	\N	1127
+2144	Who is the speaker talking about?	A presenter#A public official#A researcher#A donor	d	28	\N	1128
+2145	How will the funding be used?	To give assistance to needy youth#To purchase modern technology#To distribute critical information#To advise new businesses	a	29	\N	1128
+2146	What will occur on November 12?	A donation will be given.#A special dinner will be held.#An achievement test will be taken.#A grand opening will be organized.	b	30	\N	1128
+2147	What is this message about?	A road construction#A power outage#A weather report#A news program	b	31	\N	1129
+2148	When will the work probably be completed?	Tonight#Tomorrow morning#Tomorrow night#Next week	b	32	\N	1129
+2149	When will the announcements be updated?	Every 10 minutes#Every 30 minutes#Every hour#Every 2 hours	c	33	\N	1129
+2150	Who is the speaker leaving a message for?	A customer service agent#A store manager#An appliance manufacturer#A sales representative	b	34	\N	1130
+2151	Why did the speaker make the call?	She needs to have a device repaired.#She hopes to exchange an appliance.#She is complaining about a late delivery.#She wants to praise a staff member.	d	35	\N	1130
+2152	What does the speaker say she will do?	Tell her friends about the business#Purchase a matching washing machine#Provide a favorable review#Order some products for her company	a	36	\N	1130
+2153	1	organize#accomplish#replace#account	c	1	\N	1131
+2154	1	who#whose#they#what	a	2	\N	1132
+2155	1	staged#referred#held#went	c	3	\N	1133
+2156	1	they#their#them#theirs	b	4	\N	1134
+2157	1	strength#strengthens#stronger#strongly	c	5	\N	1135
+2158	1	excursion#itinerary#reservation#proposal	a	6	\N	1136
+2159	1	culminate#culminating#culminated#culmination	b	7	\N	1137
+2160	2	capable#valuable#eligible#flexible	c	8	\N	1137
+2161	3	If#Until#Unless#Although	d	9	\N	1137
+2162	4	Simply complete the form right now.#There is limited seating at this event.#I would like to welcome you to join us.#Please send an e-mail at your earliest convenience.	b	10	\N	1137
+2163	1	functionally#functional#to function#is functioning	d	11	\N	1138
+2164	2	problem#charge#meeting#decision	a	12	\N	1138
+2165	3	Turning your computer off and back on won’t address the issue.#Also tell us what you were doing immediately prior to it.#Moreover, improper connections could be responsible for the error.#We will try to answer any questions you have about your device.	b	13	\N	1138
+2166	4	casually#collectively#frequently#promptly	d	14	\N	1138
+2167	1	retrieval#motivation#transmission#agreement	c	15	\N	1139
+2168	2	Please check your sent message folder to verify.#Unfortunately, the cause of the error is unknown.#There have been some interruptions to our Internet service recently.#We cannot confirm that the address is a valid one.	b	16	\N	1139
+2169	3	has been deleting#be deleting#to be deleted#has been deleted	d	17	\N	1139
+2170	4	any#his#their#other	a	18	\N	1139
+2171	1	portable#reliable#notable#approachable	b	19	\N	1140
+2172	2	much too#as well#of these#such as	d	20	\N	1140
+2173	3	This gift is a token of our appreciation for your patience.#The blade should be stored in a cabinet or on the countertop.#Be sure to follow all safety procedures as instructed.#It will be shipped immediately at no additional cost to you.	a	21	\N	1140
+2174	4	consult#correct#reuse#adapt	a	22	\N	1140
+2175	Who most likely was the e-mail sent to?	Managers at company headquarters#Staff in the sales department#Technicians in the IT department#Supervisors in the marketing department	b	23	\N	1141
+2176	What is indicated about Mr. Preece?	He will visit each department in person.#He has called to request help with an office issue.#He cannot currently be contacted by telephone.#He expects to finish the repairs by the end of the day.	d	24	\N	1141
+2177	Who is Mike Bunders?	An entertainer#A singer#A manager#A producer	a	25	\N	1142
+2178	At 1:38 P.M., what does Ms. Ammon mean when she writes, “That’s great!”?	She will call the broadcasting studio.#She will watch the show tomorrow night.#She will work overtime at 9 P.M.#She will give some information to him.	b	26	\N	1142
+2179	What is the purpose of Mr. Gibson’s e-mail?	To schedule a management seminar#To respond to an inquiry from a potential client#To announce the new services of a company#To give advice on employee recruitment	b	27	\N	1143
+2180	What is indicated about Ace HR Consulting, Inc.?	It will merge with a well-established company.#It has moved its main office to the U.K.#It serves customers in more than one country.#It has purchased several graphic design	c	28	\N	1143
+2181	What is the purpose of this letter?	To offer discounted items#To recruit new employees#To announce renovations#To introduce new online features	c	29	\N	1144
+2182	What is stated about the store?	It is temporarily moving to a new location.#It has products available online.#It sells items from around the world.#It will extend its hours during the fall.	b	30	\N	1144
+1921		option a#option b#option c#option d	d	1	a	1009
+1933	Why is Mr. Ransh upset?	He did not receive a document.#The woman canceled an appointment.#He doesn’t like the woman’s design.#The construction of a building has cancelled.	a	13	c	1021
+1944	What will probably happen next?	They will do the presentation.#They will go to the caterer.#They will go to a restaurant.#They will cancel the event.	a	24		1024
+1947	What can be found on the back of the program?	Promotional coupons for events#An explanation of an exchange policy#A description of an upcoming show#Information about becoming a member	d	27		1025
+2183		option a#option b#option c#option d	b	1	\N	1145
+2184		option a#option b#option c#option d	b	2	\N	1146
+2185		option a#option b#option c#option d	a	3	\N	1147
+2186		option a#option b#option c#option d	a	4	\N	1148
+2187		option a#option b#option c#option d	b	5	\N	1149
+2188		option a#option b#option c#option d	d	6	\N	1150
+2189		option a#option b#option c	c	7	\N	1151
+2190		option a#option b#option c	b	8	\N	1152
+2191		option a#option b#option c	a	9	\N	1153
+2192		option a#option b#option c	b	10	\N	1154
+2193		option a#option b#option c	a	11	\N	1155
+2194		option a#option b#option c	b	12	\N	1156
+2195	Where will the woman make a transfer?	Coventry#Leicester#Birmingham#Sheffield	c	13	\N	1157
+2196	What most likely is the man’s job?	Train attendant#Bus driver#Cafe worker#Tour guide	a	14	\N	1157
+2197	What does the man offer to do?	Guide the woman to her seat#Announce the stop before arrival#Show the woman station signs#Give the woman a map	d	15	\N	1157
+2198	What does the woman want to find?	Some money#A file#An office key#A check	b	16	\N	1158
+2199	Where most likely is Patrick?	At his home#In his office#At a restaurant#On a business trip	d	17	\N	1158
+2200	What will John most likely do next?	Check his office#Bring Patrick#Postpone a meeting#Reply to a letter	d	18	\N	1158
+2201	Where does the man work?	At a community center#At a museum#At a university#At a library	d	19	\N	1159
+2202	What does the woman want to do?	Research modern poets#Purchase a ticket#Conduct some experiments#Sign up for evening classes	a	20	\N	1159
+2203	What does the man offer to do?	Give a private tour#Provide a discount#Send her some materials#Contact a tour guide	a	21	\N	1159
+2204	What did the woman do before work?	Went to the gym#Interviewed a CEO#Visited a client#Purchased a newspaper	d	22	\N	1160
+2205	What does the man say he is thinking about doing?	Subscribing to a publication#Filing a complaint#Ordering an item online#Paying the woman a bonus	a	23	\N	1160
+2206	Why does the man ask the woman to come back later?	To sign some paperwork#To report on a meeting#To pick up a document#To read a review	c	24	\N	1160
+2207	What is the purpose of the advertisement?	To promote a grand opening#To introduce a new chef#To announce menu changes#To report a change in ownership	a	25	\N	1161
+2208	Where is the business located?	Opposite a residential building#In the city center#Near a shopping mall#Next to a department store	a	26	\N	1161
+2209	What does the woman mean when she says, “Here’s the answer”?	She is endorsing a professional chef.#She is reviewing a particular dish.#She is recommending a business.#She is confirming a location.	c	27	\N	1161
+2210	What is the research focused on?	How sleep improves memory#How caffeine influences mood#How a certain substance affects sleep#How fast a treatment works	c	28	\N	1162
+2211	How long will volunteers be needed?	For two days#For one week#For one month#For two months	b	29	\N	1162
+2212	What are participants expected to do?	Avoid high stress levels#Keep a written record#Visit the clinic weekly#Take medication regularly	b	30	\N	1162
+2213	Who most likely is the audience?	Apartment residents#Management staff#Fitness instructors#Construction workers	a	31	\N	1163
+2214	What are listeners confused about?	When a service is available#How long a renovation will take#Whom to contact for repairs#Whether guests can access an area	d	32	\N	1163
+2215	What are listeners informed about?	A tenant survey will be conducted.#Various payment options are available.#A new billing schedule was introduced.#Equipment repairs have begun.	b	33	\N	1163
+2216	Who is the speaker leaving a message for?	A customer service agent#A store manager#An appliance manufacturer#A sales representative	b	34	\N	1164
+2217	Why did the speaker make the call?	She needs to have a device repaired.#She hopes to exchange an appliance.#She is complaining about a late delivery.#She wants to praise a staff member.	d	35	\N	1164
+2218	What does the speaker say she will do?	Tell her friends about the business#Purchase a matching washing machine#Provide a favorable review#Order some products for her company	a	36	\N	1164
+2219	1	excursion#itinerary#reservation#proposal	a	1	\N	1165
+2220	1	immediately#unexpectedly#exactly#attentively	b	2	\N	1166
+2221	1	Neither#Every#Each#All	d	3	\N	1167
+2222	1	next#closest#nearby#brief	c	4	\N	1168
+2223	1	quiet#quietly#more quiet#more quietly	d	5	\N	1169
+2224	1	amaze#amazed#amazement#amazingly	d	6	\N	1170
+2225	1	indicate#advise#promote#accept	d	7	\N	1171
+2226	2	option 1#option 2#option 3#option 4	b	8	\N	1171
+2227	3	This new role at Haymond Investments is a perfect fit.#However, we are excited to see what he will do next.#Mr. Pippen’s replacement has not yet been announced.#It will also require less travel away from his family.	d	9	\N	1171
+2228	4	Otherwise#Even so#Besides#Similarly	b	10	\N	1171
+2229	1	ordinarily#timely#especially#accurately	a	11	\N	1172
+2230	2	remove#extend#record#spend	c	12	\N	1172
+2231	3	Managers will then pass on this information to their teams.#This will help eliminate waste across the organization.#Unauthorized purchases can no longer be processed.#The purchasing department is already aware of this change.	b	13	\N	1172
+2232	4	lately#later#latest#lateness	b	14	\N	1172
+2233	1	satisfying#motivation#satisfactorily#to satisfy	d	15	\N	1173
+2234	3	multiple#lucrative#duplicate#diligent	b	17	\N	1173
+2235	4	disposable#attentive#their#collective	d	18	\N	1173
+2236	1	 properly#respectfully#positively#confidently	a	19	\N	1174
+2237	2	subjected#prohibited#discarded#supported	c	20	\N	1174
+2238	3	place#placed#placing#to place	a	21	\N	1174
+2239	4	The collected bulbs can be resold and reused by other customers.#The contents of the bins are sent to a recycling facility once a month.#In some cases, you may have to pay the disposal expenses.#Please make sure the lightbulbs are still good to be used.	b	22	\N	1174
+2240	Why is Ms. Moorefield writing to Mr. Maher?	To schedule an appointment for maintenance#To apologize to him for an inconvenience#To thank him for referring the company as a friend#To announce that cable service will be interrupted	b	23	\N	1175
+2241	What is indicated about QCV Cinemas?	It has recently experienced technical difficulties.#It is owned by Brooke Moorefield.#It has several locations.#It will close in 2 weeks for repair.	c	24	\N	1175
+2242	What is the purpose of Mr. Gibson’s e-mail?	To schedule a management seminar#To respond to an inquiry from a potential client#To announce the new services of a company#To give advice on employee recruitment	b	25	\N	1176
+2243	What is indicated about Ace HR Consulting, Inc.?	It will merge with a well-established company.#It has moved its main office to the U.K.#It serves customers in more than one country.#It has purchased several graphic design	c	26	\N	1176
+2244	What kind of business is Harrison’s?	A construction firm#An interior design company#A furniture maker#A clothing store	c	27	\N	1177
+2245	What does the Web site indicate about Harrison’s?	It delivers for free locally.#Its orders can be customized.#It is environmentally responsible.#It was featured in a publication.	b	28	\N	1177
+2246	What is indicated about Lagrange Clothing?	Its global sales have improved considerably.#It was originally founded in Brussels.#It has previously focused on domestic sales.#It intends to open a manufacturing plant in London.	c	29	\N	1178
+2247	What is suggested about Lagrange Clothing’s European stores?	They will primarily sell world-famous clothing brands.#They will be the largest of the company’s locations.#They have recently been visited by Peter Radcliffe.#They are scheduled to open for business next March.	d	30	\N	1178
+\.
+
+
+--
+-- TOC entry 4824 (class 0 OID 16652)
+-- Dependencies: 216
+-- Data for Name: skill; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.skill (skill_id, skill_name, passing_core) FROM stdin;
+1	listening	30
+2	reading	25
+\.
+
+
+--
+-- TOC entry 4830 (class 0 OID 16683)
+-- Dependencies: 222
+-- Data for Name: test; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.test (test_id, audioname, imagename, textname, order_test, part_id) FROM stdin;
+1009	30449101.mp3	418922160-1620725865601-pic1.png	text1.txt	1	189
+1010	22170665.mp3	903684399-1620790662374-part1-3.png	text15.txt	2	189
+1011	20232131.mp3	366939888-1621582686070-part1-1.png	text7.txt	3	189
+1012	55650564.mp3	990994590-1620790556902-part1-1.png	text13.txt	4	189
+1013	10164366.mp3	974773515-1620725896104-pic3.png	text3.txt	5	189
+1014	92256296.mp3	74925907-1621582797815-part1-5.png	text11.txt	6	189
+1015	38221030.mp3		text16.txt	1	190
+1016	72357308.mp3		text7.txt	2	190
+1017	75499226.mp3		text5.txt	3	190
+1018	64542288.mp3		text12.txt	4	190
+1019	44763086.mp3		text15.txt	5	190
+1020	36169115.mp3		text8.txt	6	190
+1021	2774499.mp3		text3.txt	1	191
+1022	40438651.mp3		text1.txt	2	191
+1023	108125.mp3		text6.txt	3	191
+1024	99660487.mp3		text5.txt	4	191
+1025	27856133.mp3		text2.txt	1	192
+1026	37791141.mp3		text8.txt	2	192
+1027	74370996.mp3		text17.txt	3	192
+1028	98151227.mp3		text9.txt	4	192
+1029			text18.txt	1	193
+1030			text2.txt	2	193
+1031			text9.txt	3	193
+1032			text11.txt	4	193
+1033			text5.txt	5	193
+1034			text8.txt	6	193
+1035			text7.txt	1	194
+1036			text13.txt	2	194
+1037			text19.txt	3	194
+1038			text8.txt	4	194
+1039			text8.txt	1	195
+1040			text13.txt	2	195
+1041			text7.txt	3	195
+1042			text2.txt	4	195
+1043	10164366.mp3	974773515-1620725896104-pic3.png	text3.txt	1	196
+1044	12123838.mp3	559179267-1620790759895-part1-6.png	text18.txt	2	196
+1045	92521012.mp3	197646363-1620725907323-pic4.png	text4.txt	3	196
+1046	96373586.mp3	94371017-1620725885110-pic2.jpg	text2.txt	4	196
+1047	30449101.mp3	418922160-1620725865601-pic1.png	text1.txt	5	196
+1048	50499418.mp3	603440947-1621394218150-pic1.png	text19.txt	6	196
+1049	36169115.mp3		text8.txt	1	197
+1050	46972225.mp3		text1.txt	2	197
+1051	69779558.mp3		text3.txt	3	197
+1052	44763086.mp3		text15.txt	4	197
+1053	53517470.mp3		text4.txt	5	197
+1054	64542288.mp3		text12.txt	6	197
+1055	61051445.mp3		text17.txt	1	198
+1056	48601325.mp3		text15.txt	2	198
+1057	78867473.mp3		text9.txt	3	198
+1058	37394953.mp3		text12.txt	4	198
+1059	53037430.mp3		text13.txt	1	199
+1060	39509938.mp3		text15.txt	2	199
+1061	61516067.mp3		text7.txt	3	199
+1062	98151227.mp3		text9.txt	4	199
+1063			text19.txt	1	200
+1064			text14.txt	2	200
+1065			text18.txt	3	200
+1066			text17.txt	4	200
+1067			text3.txt	5	200
+1068			text9.txt	6	200
+1069			text11.txt	1	201
+1070			text1.txt	2	201
+1071			text13.txt	3	201
+1072			text7.txt	4	201
+1073			text1.txt	1	202
+1074			text10.txt	2	202
+1075			text9.txt	3	202
+1076			text17.txt	4	202
+1077	13426208.mp3	208754229-1621582715465-part1-3.png	text9.txt	1	203
+1078	55650564.mp3	990994590-1620790556902-part1-1.png	text13.txt	2	203
+1079	20232131.mp3	366939888-1621582686070-part1-1.png	text7.txt	3	203
+1080	46276885.mp3	383779467-1620790678423-part1-4.png	text16.txt	4	203
+1081	92256296.mp3	74925907-1621582797815-part1-5.png	text11.txt	5	203
+1082	50499418.mp3	603440947-1621394218150-pic1.png	text19.txt	6	203
+1083	4024783.mp3		text9.txt	1	204
+1084	53517470.mp3		text4.txt	2	204
+1085	69779558.mp3		text3.txt	3	204
+1086	1002434.mp3		text17.txt	4	204
+1087	51864012.mp3		text2.txt	5	204
+1088	22349070.mp3		text14.txt	6	204
+975	60344039.mp3	432573172-1620725920118-pic5.png	text5.txt	1	182
+976	12123838.mp3	559179267-1620790759895-part1-6.png	text18.txt	2	182
+977	55650564.mp3	990994590-1620790556902-part1-1.png	text13.txt	3	182
+978	10164366.mp3	974773515-1620725896104-pic3.png	text3.txt	4	182
+979	96373586.mp3	94371017-1620725885110-pic2.jpg	text2.txt	5	182
+980	32133498.mp3	402218747-1620725955583-pic6.png	text6.txt	6	182
+981	22349070.mp3		text14.txt	1	183
+982	1770823.mp3		text6.txt	2	183
+983	38221030.mp3		text16.txt	3	183
+984	59488689.mp3		text18.txt	4	183
+985	78507086.mp3		text13.txt	5	183
+986	15066364.mp3		text11.txt	6	183
+987	2774499.mp3		text3.txt	1	184
+988	59643915.mp3		text10.txt	2	184
+989	13025247.mp3		text19.txt	3	184
+990	36514920.mp3		text13.txt	4	184
+991	39509938.mp3		text15.txt	1	185
+992	61516067.mp3		text7.txt	2	185
+993	32759585.mp3		text1.txt	3	185
+994	46899632.mp3		text18.txt	4	185
+995			text8.txt	1	186
+996			text1.txt	2	186
+997			text19.txt	3	186
+998			text15.txt	4	186
+999			text12.txt	5	186
+1000			text11.txt	6	186
+1001			text17.txt	1	187
+1002			text19.txt	2	187
+1003			text1.txt	3	187
+1004			text6.txt	4	187
+1005			text12.txt	1	188
+1006			text7.txt	2	188
+1007			text17.txt	3	188
+1008			text11.txt	4	188
+1089	78867473.mp3		text9.txt	1	205
+1090	108125.mp3		text6.txt	2	205
+1091	45418686.mp3		text14.txt	3	205
+1092	99660487.mp3		text5.txt	4	205
+1093	53037430.mp3		text13.txt	1	206
+1094	25840270.mp3		text12.txt	2	206
+1095	32759585.mp3		text1.txt	3	206
+1096	27856133.mp3		text2.txt	4	206
+1097			text14.txt	1	207
+1098			text13.txt	2	207
+1099			text17.txt	3	207
+1100			text1.txt	4	207
+1101			text9.txt	5	207
+1102			text4.txt	6	207
+1103			text15.txt	1	208
+1104			text10.txt	2	208
+1105			text11.txt	3	208
+1106			text19.txt	4	208
+1107			text16.txt	1	209
+1108			text15.txt	2	209
+1109			text19.txt	3	209
+1110			text14.txt	4	209
+1111	60344039.mp3	432573172-1620725920118-pic5.png	text5.txt	1	210
+1112	12123838.mp3	559179267-1620790759895-part1-6.png	text18.txt	2	210
+1113	56836982.mp3	670023583-1621582778561-part1-4.png	text10.txt	3	210
+1114	30449101.mp3	418922160-1620725865601-pic1.png	text1.txt	4	210
+1115	92521012.mp3	197646363-1620725907323-pic4.png	text4.txt	5	210
+1116	96373586.mp3	94371017-1620725885110-pic2.jpg	text2.txt	6	210
+1117	78507086.mp3		text13.txt	1	211
+1118	64542288.mp3		text12.txt	2	211
+1119	27507251.mp3		text10.txt	3	211
+1120	1770823.mp3		text6.txt	4	211
+1121	22349070.mp3		text14.txt	5	211
+1122	72357308.mp3		text7.txt	6	211
+1123	74068035.mp3		text8.txt	1	212
+1124	108125.mp3		text6.txt	2	212
+1125	68330772.mp3		text11.txt	3	212
+1126	59643915.mp3		text10.txt	4	212
+1127	25840270.mp3		text12.txt	1	213
+1128	80409551.mp3		text3.txt	2	213
+1129	98151227.mp3		text9.txt	3	213
+1130	24580518.mp3		text4.txt	4	213
+1131			text10.txt	1	214
+1132			text19.txt	2	214
+1133			text3.txt	3	214
+1134			text1.txt	4	214
+1135			text11.txt	5	214
+1136			text18.txt	6	214
+1137			text9.txt	1	215
+1138			text1.txt	2	215
+1139			text6.txt	3	215
+1140			text8.txt	4	215
+1141			text4.txt	1	216
+1142			text12.txt	2	216
+1143			text7.txt	3	216
+1144			text13.txt	4	216
+1145	46276885.mp3	383779467-1620790678423-part1-4.png	text16.txt	1	217
+1146	47882778.mp3	632208212-1621582700863-part1-2.png	text8.txt	2	217
+1147	10164366.mp3	974773515-1620725896104-pic3.png	text3.txt	3	217
+1148	50499418.mp3	603440947-1621394218150-pic1.png	text19.txt	4	217
+1149	92521012.mp3	197646363-1620725907323-pic4.png	text4.txt	5	217
+1150	13426208.mp3	208754229-1621582715465-part1-3.png	text9.txt	6	217
+1151	1770823.mp3		text6.txt	1	218
+1152	53517470.mp3		text4.txt	2	218
+1153	69779558.mp3		text3.txt	3	218
+1154	78507086.mp3		text13.txt	4	218
+1155	38221030.mp3		text16.txt	5	218
+1156	46972225.mp3		text1.txt	6	218
+1157	48601325.mp3		text15.txt	1	219
+1158	40438651.mp3		text1.txt	2	219
+1159	37394953.mp3		text12.txt	3	219
+1160	12336788.mp3		text18.txt	4	219
+1161	37791141.mp3		text8.txt	1	220
+1162	32703867.mp3		text5.txt	2	220
+1163	73300404.mp3		text19.txt	3	220
+1164	24580518.mp3		text4.txt	4	220
+1165			text18.txt	1	221
+1166			text4.txt	2	221
+1167			text5.txt	3	221
+1168			text8.txt	4	221
+1169			text14.txt	5	221
+1170			text12.txt	6	221
+1171			text13.txt	1	222
+1172			text14.txt	2	222
+1173			text5.txt	3	222
+1174			text12.txt	4	222
+1175			text15.txt	1	223
+1176			text7.txt	2	223
+1177			text3.txt	3	223
+1178			text8.txt	4	223
+\.
+
+
+--
+-- TOC entry 4846 (class 0 OID 0)
+-- Dependencies: 226
+-- Name: account_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.account_id_seq', 1, false);
+
+
+--
+-- TOC entry 4847 (class 0 OID 0)
+-- Dependencies: 217
+-- Name: exam_exam_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.exam_exam_id_seq', 71, true);
+
+
+--
+-- TOC entry 4848 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: part_part_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.part_part_id_seq', 223, true);
+
+
+--
+-- TOC entry 4849 (class 0 OID 0)
+-- Dependencies: 223
+-- Name: question_question_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.question_question_id_seq', 2247, true);
+
+
+--
+-- TOC entry 4850 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: skill_skill_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.skill_skill_id_seq', 1, false);
+
+
+--
+-- TOC entry 4851 (class 0 OID 0)
+-- Dependencies: 221
+-- Name: test_test_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.test_test_id_seq', 1178, true);
+
+
+--
+-- TOC entry 4675 (class 2606 OID 16720)
+-- Name: account account_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.account
+    ADD CONSTRAINT account_pkey PRIMARY KEY (user_id);
+
+
+--
+-- TOC entry 4667 (class 2606 OID 16664)
+-- Name: exam exam_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.exam
+    ADD CONSTRAINT exam_pkey PRIMARY KEY (exam_id);
+
+
+--
+-- TOC entry 4669 (class 2606 OID 16676)
+-- Name: part part_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.part
+    ADD CONSTRAINT part_pkey PRIMARY KEY (part_id);
+
+
+--
+-- TOC entry 4673 (class 2606 OID 16704)
+-- Name: question question_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.question
+    ADD CONSTRAINT question_pkey PRIMARY KEY (question_id);
+
+
+--
+-- TOC entry 4665 (class 2606 OID 16657)
+-- Name: skill skill_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.skill
+    ADD CONSTRAINT skill_pkey PRIMARY KEY (skill_id);
+
+
+--
+-- TOC entry 4671 (class 2606 OID 16690)
+-- Name: test test_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.test
+    ADD CONSTRAINT test_pkey PRIMARY KEY (test_id);
+
+
+--
+-- TOC entry 4676 (class 2606 OID 16665)
+-- Name: exam exam_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.exam
+    ADD CONSTRAINT exam_fkey FOREIGN KEY (skill_id) REFERENCES public.skill(skill_id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4677 (class 2606 OID 16677)
+-- Name: part part_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.part
+    ADD CONSTRAINT part_fkey FOREIGN KEY (exam_id) REFERENCES public.exam(exam_id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4679 (class 2606 OID 16705)
+-- Name: question question_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.question
+    ADD CONSTRAINT question_fkey FOREIGN KEY (test_id) REFERENCES public.test(test_id) ON DELETE CASCADE;
+
+
+--
+-- TOC entry 4678 (class 2606 OID 16691)
+-- Name: test test_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.test
+    ADD CONSTRAINT test_fkey FOREIGN KEY (part_id) REFERENCES public.part(part_id) ON DELETE CASCADE;
+
+
+-- Completed on 2025-01-17 23:27:09
+
+--
+-- PostgreSQL database dump complete
+--
+

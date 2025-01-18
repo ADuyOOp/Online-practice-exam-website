@@ -1,0 +1,5 @@
+Transcript:
+Is your restaurant able to accommodate large groups?
+(A) Food here is really tasty.
+(B) For your accommodations.
+(C) How large is your party?

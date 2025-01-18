@@ -1,0 +1,21 @@
+c-Where will the woman make a transfer?
+Coventry
+Leicester
+Birmingham
+Sheffield
+r-c
+
+c-What most likely is the man’s job?
+Train attendant
+Bus driver
+Cafe worker
+Tour guide
+r-a
+
+c-What does the man offer to do?
+Guide the woman to her seat
+Announce the stop before arrival
+Show the woman station signs
+Give the woman a map
+r-d
+

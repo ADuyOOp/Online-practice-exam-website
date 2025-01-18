@@ -1,0 +1,21 @@
+c-What is the woman concerned about?
+She is late for the conference.
+She cannot find her documents.
+She needs to practice a presentation speech.
+Her bag is missing.
+r-b
+
+c-What does the woman suggest the man do?
+Help her find some materials
+Go to her office
+Prepare for the meeting
+Rewrite some papers
+r-c
+
+c-Where will the woman go next?
+To the conference room
+To her house
+To her office
+To a copying store
+r-c
+

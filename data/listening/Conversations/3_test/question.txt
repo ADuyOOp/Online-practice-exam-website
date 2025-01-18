@@ -1,0 +1,21 @@
+c-Why is Mr. Ransh upset?
+He did not receive a document.
+The woman canceled an appointment.
+He doesn’t like the woman’s design.
+The construction of a building has cancelled.
+r-a
+
+c-What did the woman do last week?
+She had a business meeting with Mr. Ransh.
+She made changes in a blueprint design.
+She sent an e-mail to Mr. Ransh.
+She talked with Mr. Ransh on the phone.
+r-c
+
+c-What will the woman most likely do next?
+Call Mr. Ransh
+Send a document
+Visit Mr. Ransh
+Redesign the blueprints
+r-b
+

@@ -1,0 +1,21 @@
+c-Where is the conversation taking place?
+At a park
+At a fitness facility
+At an institute
+At a medical center
+r-b
+
+c-What is the man preparing for?
+A football tryout
+A basketball tournament
+An upcoming marathon
+A tennis competition
+r-c
+
+c-What does the woman offer the man?
+A class schedule
+A private session
+A free membership
+Some used equipment
+r-a
+

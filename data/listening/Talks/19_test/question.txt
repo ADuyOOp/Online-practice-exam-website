@@ -1,0 +1,21 @@
+c-Who most likely is the audience?
+Apartment residents
+Management staff
+Fitness instructors
+Construction workers
+r-a
+
+c-What are listeners confused about?
+When a service is available
+How long a renovation will take
+Whom to contact for repairs
+Whether guests can access an area
+r-d
+
+c-What are listeners informed about?
+A tenant survey will be conducted.
+Various payment options are available.
+A new billing schedule was introduced.
+Equipment repairs have begun.
+r-b
+

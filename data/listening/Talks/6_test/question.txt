@@ -1,0 +1,21 @@
+c-What type of project is the speaker calling about?
+Painting a vehicle
+Renovating a basement
+Replacing a roof
+Decorating a living room
+r-b
+
+c-What problem does the speaker mention to the listener?
+A supplier doesn’t have the right item.
+The company cannot take on new clients.
+The price of materials has increased.
+There will be a lack of employees.
+r-d
+
+c-What does the speaker offer to do?
+Give the listener a discount
+Cancel a service contract
+Visit the customer in person again
+Send a worker on the weekend
+r-a
+

@@ -1,0 +1,14 @@
+c-What is suggested about the Tampa branch of First Vision Bank?
+It needs to fill a part-time job.
+It has an entry-level job opportunity.
+It is the bank’s largest branch.
+It is a good place to work.
+r-d
+
+c-When was the job advertised?
+March 11
+May 21
+July 31
+August 20
+r-b
+

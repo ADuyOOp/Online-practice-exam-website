@@ -1,0 +1,21 @@
+c-Where does the man work?
+At a community center
+At a museum
+At a university
+At a library
+r-d
+
+c-What does the woman want to do?
+Research modern poets
+Purchase a ticket
+Conduct some experiments
+Sign up for evening classes
+r-a
+
+c-What does the man offer to do?
+Give a private tour
+Provide a discount
+Send her some materials
+Contact a tour guide
+r-a
+

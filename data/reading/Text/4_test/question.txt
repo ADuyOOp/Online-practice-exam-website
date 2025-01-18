@@ -1,0 +1,28 @@
+c-1
+hardly
+deliberately
+continuously
+directly
+r-d
+
+c-2
+enrollment
+enrolls
+enrolled
+enroll
+r-a
+
+c-3
+final
+subsequent
+distinctive
+failed
+r-b
+
+c-4
+The software must be purchased before the end of the month.
+Usernames are the same as your university-assigned student number.
+If you experience any problems with the software, e-mail it@quelearning.edu.
+The software can be installed on a maximum of two computers.
+r-c
+

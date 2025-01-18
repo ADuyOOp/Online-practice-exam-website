@@ -1,0 +1,21 @@
+c-What is the announcement mainly about?
+Resurfacing a parking lot
+Opening a new highway
+Renewal of a store
+Closure of a subway station
+r-a
+
+c-How long will the project last?
+One day
+Two days
+Three days
+Five days
+r-c
+
+c-What should the employees do?
+Come to work an hour early
+Park on Country Boulevard
+Use the alternate road
+Take only the public transportation
+r-c
+

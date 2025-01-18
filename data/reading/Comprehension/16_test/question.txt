@@ -1,0 +1,14 @@
+c-What is the purpose of the article?
+To advertise a property for lease
+To recruit staff for a restaurant
+To review a certain type of food
+To publicize the opening of a new restaurant
+r-d
+
+c-What is NOT mentioned about Luigi’s Kitchen?
+It is located in a renovated building.
+Its food is competitively priced.
+It is owned by Chez Mario’s.
+It is near several other restaurants.
+r-c
+

@@ -1,0 +1,28 @@
+c-1
+Afterward
+In order to
+Consequently
+Based on
+r-d
+
+c-2
+The committee would like to meet with you in person.
+The hiring manager will review all portfolios next week.
+As a shortlisted candidate, you will need to attend an interview.
+Please submit three work-routed references beforehand.
+r-c
+
+c-3
+were asked
+will be asked
+had asked
+would have asked
+r-b
+
+c-4
+ourselves
+myself
+us
+you
+r-d
+

@@ -1,0 +1,21 @@
+c-What problem is the man calling about?
+A customer account has been canceled.
+An appliance has not arrived.
+A machine is missing some parts.
+A device is out of order.
+r-d
+
+c-What does the woman say she will do?
+Contact the manufacturer
+Send a professional
+Replace the faulty item
+Look online for a solution
+r-b
+
+c-What does the woman recommend doing?
+Using different model
+Removing items from a machine
+Contacting a manufacturer’s helpline
+Attempting a home repair
+r-b
+

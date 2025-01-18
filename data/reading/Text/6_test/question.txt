@@ -1,0 +1,28 @@
+c-1
+retrieval
+motivation
+transmission
+agreement
+r-c
+
+c-2
+Please check your sent message folder to verify.
+Unfortunately, the cause of the error is unknown.
+There have been some interruptions to our Internet service recently.
+We cannot confirm that the address is a valid one.
+r-b
+
+c-3
+has been deleting
+be deleting
+to be deleted
+has been deleted
+r-d
+
+c-4
+any
+his
+their
+other
+r-a
+

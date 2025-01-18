@@ -1,0 +1,21 @@
+c-Who most likely is Ted Costello?
+A newspaper reporter
+A computer scientist
+A radio host
+A research assistant
+r-c
+
+c-What does Dr. Alfson specialize in?
+Music education
+Market research
+Mergers and acquisitions
+The study of language
+r-d
+
+c-What will happen on August 4?
+Dr. Alfson’s new book will be available.
+A new research project will be launched.
+The radio will broadcast an interview.
+The results of a study will be announced.
+r-a
+

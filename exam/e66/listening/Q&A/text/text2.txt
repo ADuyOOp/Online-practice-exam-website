@@ -1,0 +1,5 @@
+Transcript:
+Where should I put the new laboratory equipment?
+(A) Did you discover one?
+(B) I’ll ask the professor.
+(C) No, it’s still functioning.

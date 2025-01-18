@@ -1,0 +1,14 @@
+c-What is the purpose of the e-mail?
+To report a problem with some paperwork
+To invite an applicant for an interview
+To request further information
+To explain a hiring decision
+r-d
+
+c-What is indicated about Ms. Wan?
+She had an impressive resume.
+She is currently working part-time.
+She missed an important deadline.
+She scored poorly on a skills test.
+r-b
+

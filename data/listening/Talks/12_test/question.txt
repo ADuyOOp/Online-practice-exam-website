@@ -1,0 +1,21 @@
+c-Why is the woman calling?
+To arrange the interview time
+To request an application form
+To accept a job offer
+To advertise a new hospital plan
+r-a
+
+c-What is the speaker’s occupation?
+An academic instructor
+A secretary
+A doctor
+A hiring director
+r-d
+
+c-What does the woman ask the man to do?
+Fax some documents
+Schedule an installation date
+Order invitations
+Return a telephone call
+r-d
+

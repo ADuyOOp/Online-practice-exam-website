@@ -1,0 +1,28 @@
+c-1
+will hold
+will be held
+was held
+has held
+r-b
+
+c-2
+conducting
+behaving
+accompanying
+processing
+r-a
+
+c-3
+appropriate
+appropriates
+appropriation
+appropriately
+r-d
+
+c-4
+Many applicants possess, at minimum, a junior college degree.
+Students have a strong desire to change career paths.
+Applicants have passed at least one college-level science course,
+Candidates are willing to engage in this rigorous program.
+r-a
+

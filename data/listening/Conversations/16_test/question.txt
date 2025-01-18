@@ -1,0 +1,21 @@
+c-Who most likely is the woman?
+A business consultant
+A department manager
+A senior engineer
+A product developer
+r-d
+
+c-What problem does the woman mention?
+The machine isn’t working properly.
+A piece has broken off.
+She requires new batteries.
+She wasn’t given enough time.
+r-a
+
+c-question 3
+Starting the project over from the beginning
+Consulting with more knowledgeable staff
+Begin working on another project
+Getting feedback from customers
+r-b
+

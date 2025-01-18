@@ -1,0 +1,14 @@
+c-Who most likely was the e-mail sent to?
+Managers at company headquarters
+Staff in the sales department
+Technicians in the IT department
+Supervisors in the marketing department
+r-b
+
+c-What is indicated about Mr. Preece?
+He will visit each department in person.
+He has called to request help with an office issue.
+He cannot currently be contacted by telephone.
+He expects to finish the repairs by the end of the day.
+r-d
+

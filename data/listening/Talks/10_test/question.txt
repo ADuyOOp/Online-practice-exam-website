@@ -1,0 +1,21 @@
+c-What is the main purpose of the advertisement?
+To sell a store
+To change the sales plan
+To mention a special sale
+To launch a new item
+r-c
+
+c-What kind of business is being advertised?
+A clothing store
+A cleaning appliance
+A food market
+A delivery service
+r-a
+
+c-What information is provided for the listeners?
+A sales tax
+An e-mail address
+Business hours
+Store location
+r-c
+

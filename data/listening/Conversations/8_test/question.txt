@@ -1,0 +1,21 @@
+c-How do the speakers know each other?
+They graduated from the same university.
+They are business colleagues.
+They are currently on the same chess team.
+They are professors at a college.
+r-a
+
+c-How many years ago were the speakers at this place?
+Five
+Ten
+Fifteen
+Fifty
+r-c
+
+c-According to the woman, what is one of her favorite memories?
+The graduation ceremony
+Studying with friends
+Winning a prize
+Walking around the campus
+r-c
+

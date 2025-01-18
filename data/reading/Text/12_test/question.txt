@@ -1,0 +1,28 @@
+c-1
+ properly
+respectfully
+positively
+confidently
+r-a
+
+c-2
+subjected
+prohibited
+discarded
+supported
+r-c
+
+c-3
+place
+placed
+placing
+to place
+r-a
+
+c-4
+The collected bulbs can be resold and reused by other customers.
+The contents of the bins are sent to a recycling facility once a month.
+In some cases, you may have to pay the disposal expenses.
+Please make sure the lightbulbs are still good to be used.
+r-b
+

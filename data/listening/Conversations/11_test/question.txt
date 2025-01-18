@@ -1,0 +1,21 @@
+c-Who is Mr. Stevens?
+A customer service agent
+An online shopper
+A lighting specialist
+A corporate buyer
+r-b
+
+c-What is the man asked to do?
+Give an invoice number
+Confirm credit card details
+Wait for a return phone call
+Explain a complicated process
+r-a
+
+c-What will the man receive?
+A full refund
+A lighting control device
+An apology letter
+A new invoice
+r-b
+

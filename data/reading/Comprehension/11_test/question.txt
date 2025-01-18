@@ -1,0 +1,14 @@
+c-What is the announcement about?
+A trip to Mexico
+Dishes that are being sold at a discount
+A restaurant opening for business
+Changes to a schedule
+r-c
+
+c-What is suggested about Pedro’s Cantina?
+It is closed on Mondays.
+It has locations throughout South Carolina.
+It features live music daily.
+It has a large kitchen staff.
+r-a
+

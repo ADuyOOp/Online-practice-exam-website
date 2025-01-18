@@ -1,0 +1,21 @@
+c-What is the conversation about?
+Advertising a website
+Making schedules
+Improving interview skills
+Organizing a conference
+r-b
+
+c-What will happen on Thursday?
+Job interviews will take place.
+They will attend a conference.
+A website will be renewed.
+They will leave on a business trip.
+r-a
+
+c-What are clients complaining about?
+A website
+A building’s design
+A schedule for job interview
+A conference date
+r-a
+

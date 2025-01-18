@@ -1,0 +1,14 @@
+c-What kind of business is Harrison’s?
+A construction firm
+An interior design company
+A furniture maker
+A clothing store
+r-c
+
+c-What does the Web site indicate about Harrison’s?
+It delivers for free locally.
+Its orders can be customized.
+It is environmentally responsible.
+It was featured in a publication.
+r-b
+

@@ -1,0 +1,15 @@
+To: Henry Stevenson (hstevenson@mailtimestorage.com)
+From:Mailtime Storage (service@mailtimestorage.com)
+Date: May 17
+Subject: Failure notice
+
+Dear Customer,
+We are writing to inform you that an error during (1) ____ of your e-mail resulted in an unsent message.
+
+The message sent to lauraburk@bristolwork.com on May 16 at 23:03 failed to be delivered. (2) ____.We have not detected any malfunctions with our internal server. Therefore, we recommend resending the message. Should the same issue occur again, it is possible that the account of the intended recipient (3) ___.
+
+However, if you cannot successfully send messages to (4) ___ contact, please inform our customer support department by calling 1-800-555-9506.
+
+Please note that this is an automated message. Do not reply.
+Sincerely,
+The Mailtime Storage Team

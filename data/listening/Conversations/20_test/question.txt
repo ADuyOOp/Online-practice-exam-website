@@ -1,0 +1,21 @@
+c-Where is the conversation taking place?
+At a furniture store
+At an electronics store
+At a coffee shop
+At a utility company
+r-b
+
+c-What does the woman imply when she says, “What’s the number”?
+An access code isn’t working.
+The receipt can be looked up.
+She wants to know the machine type.
+An account should be opened.
+r-c
+
+c-What can be inferred about the business?
+It doesn’t carry outdated stock.
+It has more than one branch.
+It sells its goods online.
+It extended its hours of operation.
+r-b
+

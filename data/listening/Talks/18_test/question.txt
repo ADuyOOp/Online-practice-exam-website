@@ -1,0 +1,21 @@
+c-What is the broadcast mainly about?
+A sports match
+A theater production
+A movie premiere
+A rock concert
+r-a
+
+c-What is indicated about the event?
+It has been postponed.
+It happens once a year.
+There was a change in the venue.
+There are no tickets left.
+r-d
+
+c-When is the event scheduled to take place?
+After the news
+This evening
+Tomorrow night
+In two days
+r-c
+

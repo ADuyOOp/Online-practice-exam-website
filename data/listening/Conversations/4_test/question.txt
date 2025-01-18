@@ -1,0 +1,21 @@
+c-Where did Janice stay when she was in Athens?
+In a hotel
+At a friend’s house
+In an office
+In her home
+r-a
+
+c-Why did the man go to Athens?
+For a family trip
+For a vacation
+For a business trip
+For a promotion
+r-c
+
+c-How did Janice mostly spend her vacation?
+Eating various Greek foods
+Relaxing on the beach
+Shopping
+Sightseeing
+r-b
+

@@ -1,0 +1,21 @@
+c-Who is the speaker talking about?
+A presenter
+A public official
+A researcher
+A donor
+r-d
+
+c-How will the funding be used?
+To give assistance to needy youth
+To purchase modern technology
+To distribute critical information
+To advise new businesses
+r-a
+
+c-What will occur on November 12?
+A donation will be given.
+A special dinner will be held.
+An achievement test will be taken.
+A grand opening will be organized.
+r-b
+

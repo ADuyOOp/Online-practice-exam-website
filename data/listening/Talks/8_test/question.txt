@@ -1,0 +1,21 @@
+c-What is the purpose of the advertisement?
+To promote a grand opening
+To introduce a new chef
+To announce menu changes
+To report a change in ownership
+r-a
+
+c-Where is the business located?
+Opposite a residential building
+In the city center
+Near a shopping mall
+Next to a department store
+r-a
+
+c-What does the woman mean when she says, “Here’s the answer”?
+She is endorsing a professional chef.
+She is reviewing a particular dish.
+She is recommending a business.
+She is confirming a location.
+r-c
+

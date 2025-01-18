@@ -1,0 +1,28 @@
+c-1
+was not
+has not been
+will not be
+would not have been
+r-c
+
+c-2
+Our office location will also remain the same.
+We apologize for any inconvenience and thank you for understanding.
+Please be aware that our phone number has been changed.
+We are still waiting for our new telephone and fax numbers.
+r-c
+
+c-3
+here
+now
+still
+during
+r-b
+
+c-4
+reminder
+delivery
+cleaning
+advice
+r-d
+

@@ -1,0 +1,28 @@
+c-1
+receive
+will be received
+was received
+have received
+r-d
+
+c-2
+I found that we won’t be able to install the furniture this week.
+We’re very busy at this time of the year since it’s summer.
+I have noticed that this is not the first time we’ve had this problem.
+She’d like us to go ahead and get started sending the catalogue.
+r-c
+
+c-3
+assigning
+containing
+explaining
+understanding
+r-a
+
+c-4
+order
+idea
+collection
+development
+r-b
+

@@ -1,0 +1,21 @@
+c-What did the woman do before work?
+Went to the gym
+Interviewed a CEO
+Visited a client
+Purchased a newspaper
+r-d
+
+c-What does the man say he is thinking about doing?
+Subscribing to a publication
+Filing a complaint
+Ordering an item online
+Paying the woman a bonus
+r-a
+
+c-Why does the man ask the woman to come back later?
+To sign some paperwork
+To report on a meeting
+To pick up a document
+To read a review
+r-c
+

@@ -1,0 +1,7 @@
+c-1
+open
+single
+available
+optional
+r-d
+

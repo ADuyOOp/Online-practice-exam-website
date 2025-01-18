@@ -1,0 +1,21 @@
+c-Who is the speaker leaving a message for?
+A customer service agent
+A store manager
+An appliance manufacturer
+A sales representative
+r-b
+
+c-Why did the speaker make the call?
+She needs to have a device repaired.
+She hopes to exchange an appliance.
+She is complaining about a late delivery.
+She wants to praise a staff member.
+r-d
+
+c-What does the speaker say she will do?
+Tell her friends about the business
+Purchase a matching washing machine
+Provide a favorable review
+Order some products for her company
+r-a
+

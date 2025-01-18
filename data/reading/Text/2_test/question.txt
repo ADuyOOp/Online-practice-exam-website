@@ -1,0 +1,28 @@
+c-1
+statement
+correction
+misprint
+location
+r-c
+
+c-2
+apologizing
+apologized
+apologizes
+apologize
+r-d
+
+c-3
+our
+his
+its
+them
+r-a
+
+c-4
+Mr. Lambert has approved the final version, so this project is now complete.
+Any further production complaints can be sent to me directly.
+Let’s schedule a meeting to determine the appropriate solution.
+Please contact me once you have received payment for the reprints.
+r-b
+

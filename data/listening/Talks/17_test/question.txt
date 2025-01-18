@@ -1,0 +1,21 @@
+c-Where does the speaker most likely work?
+At a research laboratory
+At a government office
+At a television studio
+At an advertising agency
+r-c
+
+c-What is impressive about Mr. Jackson?
+His writing skills
+His educational background
+His contribution to his company
+His extensive experience
+r-a
+
+c-What does the speaker offer to do?
+Extend a submission deadline
+Provide a reference letter
+Review Mr. Jackson’s resume
+Give information to a coworker
+r-d
+

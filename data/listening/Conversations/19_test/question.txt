@@ -1,0 +1,21 @@
+c-Why does the woman indicate she is pleased?
+She came in first in a prize draw.
+She developed a sales pitch.
+She recently won a new client.
+She reached a maximum bonus.
+r-d
+
+c-What will be the topic of the woman’s presentations?
+Creating memorable advertisements
+Analyzing customer needs
+Gathering feedback online
+Developing new products
+r-b
+
+c-When will the introductory lecture be given?
+On September 1
+On September 2
+On September 6
+On September 10
+r-b
+

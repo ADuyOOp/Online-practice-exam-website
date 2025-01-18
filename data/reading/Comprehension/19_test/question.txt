@@ -1,0 +1,14 @@
+c-What is being advertised?
+An office interior design service
+A home-landscaping businesses
+A course in floral design
+A book on interior design
+r-a
+
+c-What does Office Decor Inc. NOT advertise in the notice?
+A wide choice of design options
+Free consultation for new customers
+Shipment of imported flowers
+An in-house design team
+r-c
+
