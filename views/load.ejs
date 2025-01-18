@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FULL TEST</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+        color: #333;
+        line-height: 1.6;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem 2.5rem;
+        border-bottom: 1px solid #fffdfd;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        text-decoration: none;
+      }
+
+      .logo img {
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1a1a1a;
+      }
+        .menu-icon {
+            width: 2rem;
+            height: 2rem;
+            background-color: #fff5f2;
+            color: #ff4d1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+        }
+        .user-profile {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            }
+        .main-content {
+            max-width: 42rem;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .test-card {
+            background-image: linear-gradient(to bottom, #FF8159 0%, #FF8159 10%, white 100%);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid #ffe6df;
+        }
+        .card-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .illustration {
+            width: 100%;
+            height: 16rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .illustration img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .test-info {
+            text-align: center;
+        }
+        .test-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .test-description {
+            color: #666;
+        }
+        .start-button {
+            background-color: #ff4d1a;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.15s ease-in-out;
+            text-decoration: none;
+        }
+        .start-button:hover {
+            background-color: #ff2600;
+            text-decoration: none;
+        }
+
+        .start-button-link {
+            text-decoration: none;
+        }
+        .start-icon {
+            margin-right: 0.5rem;
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+        }
+        .nav-item {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: #FF7F50;
+        }
+
+        .nav-item.active {
+            color: #FF7F50;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo">
+            <img src="/placeholder.svg" alt="EstudyMe Logo">
+            <span class="logo-text">Estudy</span>
+        </a>
+          <nav class="nav-menu">
+            <a href="/exam/list/" class="nav-item">Test exam</a>
+            <a href="/manage/list/" class="nav-item">Manage exam</a>
+            <a href="/data/" class="nav-item">Compose exam</a>
+            <a href="/user/list" class="nav-item">Manage account</a>
+            <div class="user-profile">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            </div>
+          </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="test-card">
+            <div class="card-content">
+                <div class="illustration">
+                    <img src="/asset/overview-test.webp" alt="Online Test Illustration">
+                </div>
+                <div class="test-info">
+                    <h2 class="test-title">EXAM <%= exam.Examid %> </h2>
+                    <p class="test-description">
+                        The test is divided into 4 parts with <%= exam.Tquestion %> questions. The exam will last <%= exam.Duration %> minutes.
+                    </p>
+                </div>
+                <a href="/exam/list/<%=exam.Examid%>" class="start-button-link">
+                    <button class="start-button">
+                        <span class="start-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </span>
+                        Start Now
+                    </button>
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

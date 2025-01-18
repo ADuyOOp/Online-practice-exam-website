@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exam Page</title>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2.5rem;
+            border-bottom: 1px solid #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        }
+
+        .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        text-decoration: none;
+      }
+
+      .logo img {
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1a1a1a;
+      }
+        .menu-icon {
+            width: 2rem;
+            height: 2rem;
+            background-color: #fff5f2;
+            color: #ff4d1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+        }
+        .user-profile {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: #dcdcdc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: #FF7F50;
+        }
+
+        .nav-item.active {
+            color: #FF7F50;
+        }
+
+        .timer {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: fixed;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            color: #007bff;
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 5px 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 99;
+        }
+
+        .timer .clock-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 30px auto 10px;
+            background: #f1e1e1;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .test {
+            margin-bottom: 20px;
+        }
+
+        .audio-player {
+            display: flex;
+            align-items: center;
+            background-color: rgb(248, 248, 248);
+            border-radius: 9999px;
+            padding: 12px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .audio-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .play-pause-btn {
+            margin-right: 15px;
+        }
+
+        .time-display {
+            font-size: 14px;
+            color: #666;
+            margin-right: 15px;
+            min-width: 80px;
+        }
+        .progress-container {
+            flex-grow: 1;
+            height: 4px;
+            background-color: #e5e7eb;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: #ff7b5c;
+            border-radius: 2px;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .zoom-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            padding-bottom: 20px;
+        }
+        .zoom-btn {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zoom-btn .zoom-btn-icon {
+            width: 24px;
+            height: 24px;
+            color: #000000; 
+        }
+
+        .options {
+            display: block;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .option:last-child {
+            margin-bottom: 0; 
+        }
+        .option:hover {
+            background: #f3b894;
+        }
+        .option input[type="radio"] {
+            margin: 0;
+        }
+
+        .text-column {
+            flex: 1;
+            text-align: justify;
+        }
+
+        .part-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a1a1a;
+            position: relative;
+            padding-left: 16rem;
+            margin-top: 3rem;
+        }
+
+        .part-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 16rem;
+            width: 10rem;
+            height: 0.25rem;
+            background-color: #FF7F50;
+        }
+
+        /* General button styles */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px; 
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Result button styles */
+        .result-btn {
+            background-color: #ff7b5c;
+            color: white;
+            border-radius: 50px; 
+            font-size: 18px; 
+            font-weight: bold;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+        }
+
+        .result-btn:disabled {
+            background-color: #f0f0f0;
+            color: #c0c0c0; 
+            cursor: not-allowed;
+            box-shadow: none; 
+        }
+
+        .result-btn:hover:not(:disabled) {
+            background-color: #ff5630; 
+            transform: scale(1.05); 
+        }
+        .end-btn:hover:not(:disabled) {
+            background-color: #ff5630; 
+            transform: scale(1.05); 
+        }
+
+        .end-btn:disabled {
+            background-color: #f0f0f0;
+            color: #c0c0c0; 
+            cursor: not-allowed;
+            box-shadow: none; 
+        }
+        /* End button styles */
+        .end-btn {
+            background-color: white; 
+            color: #ff7b5c; 
+            border-radius: 50px; 
+            font-size: 18px;
+            font-weight: bold;
+            border: 2px solid #ff7b5c;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-container {
+            display: flex; 
+            margin-left: 930px;
+            gap: 5px;
+        }
+
+        .question-order {
+            color: #f8522c;
+        }
+
+        </style>
+    </head>
+    <body>
+        <% let skillID = Exam.Skillid %>
+        <header class="header">
+        <a href="/" class="logo">
+        <img src="/placeholder.svg" alt="EstudyMe Logo">
+            <% if (skillID == 1) { %>
+                <span class="logo-text">Listening Test: Exam No <%= Exam.Examid %></span>
+            <% } else { if (skillID == 2) {%>
+                <span class="logo-text">Listening Test: Exam No <%= Exam.Examid %></span>
+                <% } %>
+            <% } %>
+        </a>
+            <nav class="nav-menu">
+              <a href="/" class="nav-item">Home</a>
+              <a href="/exam/list/" class="nav-item">Test exam</a>
+              <div class="user-profile">
+                <!-- User scritp here -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              </div>
+            </nav>
+        </header>
+
+        
+        <div class="timer">
+            <svg class="clock-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#007bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span id="timer-display"><input type="hidden" id="cTime" value="<%= countTime %>"></span>
+        </div>
+
+        <form method="post" id="theForm">
+            <% let Parts = Exam.ArrPart %>                     
+            <% for (const Part of Parts) { %>
+                <p></p>         
+                <h2 class="part-title">Part name: <%= Part.Partname %></h2>
+                <% var pName = Part.Partname %>
+                    <% let Tests = Part.ArrTest %>               
+                    <% for ( const Test of Tests) { %> 
+                        <% let Questions = Test.ArrQues %>
+                            <div class="quiz-container"> 
+                                <div class="test">                 
+                                    <p></p>
+                                    <% if (skillID == 1) { %>
+                                        <div class="audio-player">
+                                                <audio id="audio" controls name="audio" style="display: none;">
+                                                    <source src="/audio/<%= Test.Audio %>" type="audio/ogg">
+                                                    Your browser does not support the audio element.
+                                                </audio>
+                                                <button id="playPauseBtn" type="button" class="audio-button play-pause-btn">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#ff7b5c">
+                                                        <path d="M8 5v14l11-7z"/>
+                                                    </svg>
+                                                </button>
+                                                <div id="timeDisplay" class="time-display">00:00 / 00:00</div>
+                                        
+                                                <div id="progressBarContainer" class="progress-container">
+                                                    <div id="progressBar" class="progress-bar"></div>
+                                                </div>
+                                                <button id="volumeBtn" type="button" class="audio-button">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#666">
+                                                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                                                    </svg>
+                                                </button>
+                                        </div>                                    
+                                        <p></p>
+                                        <% if (pName == "Photographs") { %>
+                                            <div class="image-container">
+                                                <img src= "/image/<%= Test.Image %>" alt="https://via.placeholder.com/600x400">
+                                            </div>
+
+                                            <div class="zoom-controls">
+                                                <button class="zoom-btn">
+                                                    <svg class="zoom-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                                        <circle cx="12" cy="12" r="3"/>
+                                                    </svg>
+                                                </button>
+                                                <button class="zoom-btn">
+                                                    <svg class="zoom-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <circle cx="11" cy="11" r="8"></circle>
+                                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                                                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                                                    </svg>
+                                                </button>
+                                                
+                                                <button class="zoom-btn">
+                                                    <svg class="zoom-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <circle cx="11" cy="11" r="8"></circle>
+                                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        <% } %>
+                                    <% } %>
+                                    <% if (skillID == 2) { %>
+                                        <!-- Text: <%= Test.Text %><br>         -->
+                                        <div class="text">
+                                            <embed src="/text/<%= Test.Text %>">
+                                        </div>
+                                        <p></p>
+                                    <% } %>
+                                    <div class="options"> 
+                                        <!-- Question -->
+                                                    
+                                        <% for (const Question of Questions) { %>  
+                                            <p></p> 
+                                                <p></p>
+                                                Question: <b class="question-order"><%= Question.Orderquestion %>) <b><%= Question.Content %></b></b>                
+                                                <% var soq = Question.Orderquestion %>
+                                                <input type="hidden" name="sqid" value="<%= Question.Quesionid %>"/>   
+                                                <% var olet = "" %>    
+                                                <% var Options = Question.ArrOpt %>             
+                                                <% for (var index = 0; index < Options.length; index++) { %>    
+                                                    <% if (index == 0) { olet = "a"; } %>          
+                                                    <% if (index == 1) { olet = "b"; } %>
+                                                    <% if (index == 2) { olet = "c"; } %>
+                                                    <% if (index == 3) { olet = "d"; } %>
+                    
+                                                    <label class="option">
+                                                        <input type="radio" name="<%= soq %>" value="<%= olet %>" /> <span>(<%= olet %>)</span> <%= Options[index] %>
+                                                    </label>
+                                                    <p></p>
+                                                <% } %>        
+                                        <% } %>         
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>             
+                    <% } %>
+            <div class="btn-container">
+                <input type="submit" class="btn result-btn" id="result" value="Result" formaction="/exam/score/<%= Exam.Examid %>" disabled/>
+                <input type="button" class="btn end-btn" id="end" value="End" onclick="callfetch()"/>
+            </div>
+        </form>
+
+        <script>
+
+            function getQID() {
+                var arrSid = []
+                var arr = document.getElementsByName('sqid')
+                for (var i = 0; i < arr.length; i++) {
+                    arrSid.push(arr[i].value)
+                }
+                console.log(arrSid)
+                return arrSid
+            }
+
+            function getQOD() {
+                var arrSod = []
+                var arr = document.getElementsByName('sqid')
+                for (var i = 1; i < arr.length + 1; i++) {
+                    var si = i.toString()
+                    var soq = document.getElementsByName(si)
+
+                    var ischecked = false
+                    for (var j = 0; j < soq.length; j++) {
+                        var val = ''
+                        if (soq[j].checked) {
+                            var val = soq[j].value
+                            arrSod.push(val)
+                            ischecked = true
+                            console.log(val)
+                        }
+                    }
+                    if (!ischecked) {
+                        arrSod.push('')
+                    }                
+                }
+                console.log(arrSod)
+                return arrSod
+            }
+            function showClock(id) {
+                noBack(); 
+
+                const cTime = document.getElementById("cTime");
+                let countTime = cTime.value * 60; 
+                let curr = 1;
+
+                const timerDisplay = document.getElementById("timer-display"); 
+                const endButton = document.getElementById("end");
+
+                const x = setInterval(function () { 
+                    curr += 1;
+                    let remain = countTime - curr;
+
+                    const hour = String(Math.floor(remain / 3600)).padStart(2, '0');
+                    const minute = String(Math.floor((remain % 3600) / 60)).padStart(2, '0');
+                    const second = String(Math.floor(remain % 60)).padStart(2, '0');
+
+                    timerDisplay.innerText = `${hour}:${minute}:${second}`;
+
+                    if (remain < 0) {
+                        if (!endButton.disabled) {
+                            callfetch();
+                            console.log('Call callfetch() from showClock()');
+                        }
+                        clearInterval(x);
+                    }
+                }, 1000);
+
+                    endButton.addEventListener('click', function () {
+                        clearInterval(x);
+                        console.log('Timer stopped manually by clicking End button');
+                    });
+                } 
+
+            function preventBack() { 
+                window.history.forward();  
+            } 
+
+            function noBack() {
+                setTimeout("preventBack()", 0);             
+                window.onunload = function () { null };       
+            }
+
+
+            async function myfetch() {
+                const response = await fetch('/exam/list/<%= Exam.Examid %>', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json', 
+                    },
+                    body: JSON.stringify({ sqod: getQOD(), sqid: getQID(), mess: 'mess' }),
+                })                
+                console.log("is fetched")
+            }
+            
+            function callfetch() {
+                const quizContainers = document.querySelectorAll('.quiz-container');
+
+                quizContainers.forEach((container) => {
+                    container.style.filter = 'blur(5px)';
+                    container.style.pointerEvents = 'none'; 
+                });
+
+                setTimeout(myfetch, 1000);
+                console.log("call myfetch()")
+                document.getElementById('result').disabled = false
+                document.getElementById('end').disabled = true
+                console.log("reset buttons")     
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+            const quizContainers = document.querySelectorAll('.quiz-container');
+
+            quizContainers.forEach((container) => {
+                const audioElement = container.querySelector('#audio');
+                const playPauseBtn = container.querySelector('#playPauseBtn');
+                const timeDisplay = container.querySelector('#timeDisplay');
+                const progressBarContainer = container.querySelector('#progressBarContainer');
+                const progressBar = container.querySelector('#progressBar');
+                const volumeBtn = container.querySelector('#volumeBtn');
+
+                let isDragging = false;
+
+                playPauseBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    togglePlayPause();
+                });
+
+                volumeBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    toggleMute();
+                });
+
+                audioElement.addEventListener('timeupdate', updateProgress);
+
+                progressBarContainer.addEventListener('mousedown', (event) => {
+                    isDragging = true;
+                    updateAudioTime(event);
+                });
+
+                document.addEventListener('mousemove', (event) => {
+                    if (isDragging) {
+                        updateAudioTime(event);
+                    }
+                });
+
+                document.addEventListener('mouseup', () => {
+                    if (isDragging) {
+                        isDragging = false;
+                    }
+                });
+
+                function togglePlayPause() {
+                    if (audioElement.paused) {
+                        audioElement.play();
+                        playPauseBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="#ff7b5c"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+                    } else {
+                        audioElement.pause();
+                        playPauseBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="#ff7b5c"><path d="M8 5v14l11-7z"/></svg>';
+                    }
+                }
+
+                function toggleMute() {
+                    audioElement.muted = !audioElement.muted;
+                    volumeBtn.innerHTML = audioElement.muted
+                        ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="#666"><path d="M3 9v6h4l5 5V4L7 9H3z M16 12l4 4m0-4l-4-4"/></svg>'
+                        : '<svg width="24" height="24" viewBox="0 0 24 24" fill="#666"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>';
+                }
+
+                function updateProgress() {
+                    if (!isDragging) {
+                        const currentTime = formatTime(audioElement.currentTime);
+                        const duration = formatTime(audioElement.duration || 0);
+                        timeDisplay.textContent = `${currentTime} / ${duration}`;
+
+                        const percent = (audioElement.currentTime / audioElement.duration) * 100;
+                        progressBar.style.width = `${percent}%`;
+                    }
+                }
+
+                function updateAudioTime(event) {
+                    const rect = progressBarContainer.getBoundingClientRect();
+                    const offsetX = event.clientX - rect.left;
+                    const percent = Math.min(Math.max(offsetX / rect.width, 0), 1);
+
+                    audioElement.currentTime = percent * audioElement.duration;
+                    progressBar.style.width = `${percent * 100}%`;
+
+                    const currentTime = formatTime(audioElement.currentTime);
+                    const duration = formatTime(audioElement.duration || 0);
+                    timeDisplay.textContent = `${currentTime} / ${duration}`;
+                }
+
+                function formatTime(seconds) {
+                    const minutes = Math.floor(seconds / 60);
+                    const remainingSeconds = Math.floor(seconds % 60);
+                    return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+                    }
+                });
+            }); 
+
+
+            if (window.attachEvent)
+                { window.attachEvent('onload', showClock('<%= Exam.Examid %>')); }
+            else if (window.addEventListener)
+                { window.addEventListener('load', showClock('<%= Exam.Examid %>'), false); }
+            else
+                { document.addEventListener('load', showClock('<%= Exam.Examid %>'), false); }
+        </script>
+    </body>
+</html>

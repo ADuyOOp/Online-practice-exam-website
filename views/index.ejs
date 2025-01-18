@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOEIC® Test Pro</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .nav-item {
+      text-decoration: none;
+      color: #1a1a1a;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-item:hover {
+      color: #FF7F50;
+    }
+
+    .nav-item.active {
+      color: #FF7F50;
+    }
+
+    .hero {
+      background-color: #fdf7f7;
+      padding: 4rem 1.25rem;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      color: #1a1a1a;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .hero-text {
+      max-width: 50rem;
+      margin: 0 auto 2.5rem;
+      color: #666;
+      line-height: 1.6;
+      font-size: 1.125rem;
+      text-align: center;
+    }
+
+    .tab-container {
+      display: inline-flex;
+      background: white;
+      padding: 1rem;
+      border-radius: 9999px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .tab {
+      padding: 0.625rem 1.5rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .tab.active {
+      color: #FF7F50;
+      position: relative;
+    }
+
+    .tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 25%;
+      width: 50%;
+      height: 0.125rem;
+      background-color: #FF7F50;
+      border-radius: 0.125rem;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      background-color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 15px 25px;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-weight: 600;
+      color: #1a1a1a;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      color: #FF7F50;
+    }
+
+    .info-box {
+      background-color: white;
+      border-radius: 24px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+
+    .info-box h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .info-box h3 {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-box p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .info-box table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+    }
+
+    .info-box table, .info-box th, .info-box td {
+      border: 1px solid #e2e8f0;
+    }
+
+    .info-box th, .info-box td {
+      padding: 0.5rem;
+      text-align: left;
+    }
+
+    .read-more {
+      color: #FF7F50;
+      cursor: pointer;
+      font-weight: 800;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      font-size: 1.125rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+/* userprofile css */
+    .user-profile {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background-color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-icon {
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        z-index: 1000;
+        min-width: 150px;
+        text-align: center;
+    }
+
+    .dropdown-menu .username {
+        padding: 10px;
+        font-weight: bold;
+    }
+
+    .dropdown-menu .logout-button {
+        background-color: #ff4d4f;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        margin: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .dropdown-menu .logout-button:hover {
+        background-color: #d9363e;
+    }
+
+    .dropdown-menu .login-link {
+        display: block;
+        text-decoration: none;
+        color: #007bff;
+        padding: 10px;
+    }
+
+    .dropdown-menu .login-link:hover {
+        text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="/" class="logo">
+      <img src="/placeholder.svg" alt="EstudyMe Logo">
+      <span class="logo-text">Estudy</span>
+    </a>
+    
+    <nav class="nav-menu">
+      <a href="/exam/list/" class="nav-item">Test exam</a>
+      <a href="/manage/list/" class="nav-item">Manage exam</a>
+      <a href="/data/" class="nav-item">Compose exam</a>
+      <a href="/user/list" class="nav-item">Manage account</a>
+
+      <div class="user-profile">
+          <div class="profile-dropdown">
+            <div class="profile-icon" onclick="toggleDropdown()">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle> 
+              </svg>
+            </div>
+            <div id="dropdown-menu" class="dropdown-menu">
+                <% if (Username != "") { %>
+                    <p class="username"><%= Username %></p>
+                    <button onclick="window.location.href='/manage/logout'" class="logout-button">Logout</button>
+                <% } %>
+            </div>
+        </div>
+      </div>
+
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 class="hero-title">Free Online TOEIC® Test 2024</h1>
+    <p class="hero-text">
+      Welcome to TOEIC® Test Pro, a free TOEIC® website/app that provides learners with numerous practice tests divided into parts, mock tests as well as vocabulary and grammar exercises. Start off your journey of conquering the TOEIC® certificate with practice tests on our website/app now!
+    </p>
+
+    <div class="info-box">
+      <div id="visible-content">
+        <h2><strong>1. TOEIC® Test Overview</strong></h2>
+        <h3><strong>1.1. What Is TOEIC® ?</strong></h3>
+        <p><strong>TOEIC® (the Test of English for International Communication)&nbsp;</strong>is a standardized English test oriented towards professionals and companies. The exam is a product of ETS, an American non-profit organization.&nbsp;</p>
+        <p>Questions in the TOEIC® test are based on real-life work settings in the international environment such as meetings, travel, telephone conversations and so on.&nbsp;</p>      
+      </div>
+      <div id="more-content" class="hidden">
+        <h3><strong>1.2. TOEIC® Test Format</strong></h3>
+          <p>The TOEIC® test includes two sections: Reading and Listening. Candidates will take the Reading section within 75 minutes and the Listening section within 45 minutes. The total time for a TOEIC® exam is 120 minutes.&nbsp;</p>
+          <p>Each section consists of 100 multiple choice questions.</p>
+          <p>Here is the new format of the exam. Like the previous format, the new format comprises 7 parts; however, the number of questions in certain parts has been changed.</p>
+          <table style="border-collapse: collapse; width: 100%;" border="1">
+          <tbody>
+          <tr>
+          <td>
+          <p><strong>Section&nbsp;</strong></p>
+          </td>
+          <td>
+          <p><strong>Part</strong></p>
+          </td>
+          <td>
+          <p><strong>Number of questions&nbsp;</strong></p>
+          </td>
+          </tr>
+          <tr>
+          <td rowspan="4">
+          <p><strong>Listening&nbsp;</strong></p>
+          </td>
+          <td>
+          <p>Part 1: Photographs&nbsp;</p>
+          </td>
+          <td>
+          <p>6&nbsp;</p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+          <p>Part 2: Question - Response&nbsp;</p>
+          </td>
+          <td>
+          <p>25&nbsp;</p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+          <p>Part 3: Conversations&nbsp;</p>
+          </td>
+          <td>
+          <p>39 (13 conversations, 3 questions per conversation)</p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+          <p>Part 4: Short Talks&nbsp;</p>
+          </td>
+          <td>
+          <p>30 (10 talks, 3 questions per talk)</p>
+          </td>
+          </tr>
+          <tr>
+          <td rowspan="4">
+          <p><strong>Reading&nbsp;</strong></p>
+          </td>
+          <td>
+          <p>Part 5: Incomplete Sentences&nbsp;</p>
+          </td>
+          <td>
+          <p>30</p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+          <p>Part 6: Text Completion&nbsp;</p>
+          </td>
+          <td>
+          <p>16&nbsp;</p>
+          </td>
+          </tr>
+          <tr>
+          <td rowspan="2">
+          <p>Part 7: Reading Comprehension&nbsp;</p>
+          </td>
+          <td>
+          <p>Single passages: 29 (10 single passage, 2-4 questions per passage)</p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+          <p>Multiple passages: 25 (2 set-based double passages + 3 set-based triple passages, 5 questions per set)</p>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <h3><strong>1.3. TOEIC® Scoring and Assessment</strong>&nbsp;</h3>
+          <p>The TOEIC® is not a pass-or-fail exam. It evaluates your English competence in Reading and Listening skills.&nbsp;</p>
+          <p>In the TOEIC® Reading and Listening test, candidates are marked based on the number of questions they answered correctly, which is then converted to a scaled score. The score report shows listening, reading and scaled score. The total scaled score is determined by adding two scaled scores together.&nbsp;</p>
+          <p>The TOEIC® Reading and Listening test gives a score between 10 and 990. Therefore, the maximum score for each section is 495.&nbsp;</p>
+          <table style="border-collapse: collapse; width: 100%;" border="1">
+          <tbody>
+          <tr>
+          <td>
+          <p>905 - 990</p>
+          </td>
+          <td>
+          <p>International Proficiency</p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+          <p>785 – 900&nbsp;</p>
+          </td>
+          <td>
+          <p>Working Proficiency Plus</p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+          <p>605 – 780</p>
+          </td>
+          <td>
+          <p>Limited Working Proficiency</p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+          <p>405 – 600</p>
+          </td>
+          <td>
+          <p>Elementary Proficiency Plus</p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+          <p>255 – 400</p>
+          </td>
+          <td>
+          <p>Elementary Proficiency</p>
+          </td>
+          </tr>
+          <tr>
+          <td>
+          <p>10– 250</p>
+          </td>
+          <td>
+          <p>Memorized Proficiency</p>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <h2><strong>2. Benefits of TOEIC® certificate&nbsp;</strong></h2>
+          <p>The TOEIC® certificate brings a host of advantages to learners. Here are the top benefits of the TOEIC® certificate that you can gain from:</p>
+          <h3><strong>2.1. Possess a widely recognized certification&nbsp;</strong></h3>
+          <p>As its name “the Test of English for International Communication”, the TOEIC® certificate is clear proof of your English communication ability in the international environment. TOEIC® has been trusted by more than 14000 organizations in 160 countries in the world.</p>
+          <h3><strong>2.2. Open up more job opportunities&nbsp;</strong></h3>
+          <p>As the job market is becoming more competitive, you need to find effective ways to make yourself stand out from the crowd. An impressive resume with a standardized English test like TOEIC® can bring you more job opportunities in the global market as well as represent your workplace communication skills regardless of age, gender, nationality and background. Besides, having an English certificate shows employers that you are willing to dedicate time to enhancing your English and professional skills.&nbsp;</p>
+          <h3><strong>2.3. Boost your motivation levels&nbsp;</strong></h3>
+          <p>Motivation plays a pivotal role in learning a new language. Language learning can boost academic motivation and students’ self-efficacy. By taking the TOEIC® exam and making improvements in your English level, you will have more motivation to study better and keep on learning and using language.&nbsp;</p>
+          <h2><strong>3. Frequently Asked Questions (FAQ) About TOEIC® Test&nbsp;</strong></h2>
+          <h3><strong>3.1. What does the test assess?&nbsp;</strong></h3>
+          <p>The TOEIC® Listening and Reading test assess the ability to listen and read in English.</p>
+          <p>Taking the online TOEIC® tests free to familiarize yourself with the format of the real test.</p>
+          <h3><strong>3.2. Who uses the test?</strong></h3>
+          <p>Many companies, corporations and educational institutions in the world use the TOEIC® Listening and Reading test to evaluate the English-language proficiency of students and business professionals. At&nbsp;<strong>TOEIC® Test Pro</strong>, we suggest numerous free online TOEIC® tests which are suitable with your levels and explained clearly after each one.</p>
+          <p>Individuals taking the TOEIC® test consist of:&nbsp;</p>
+          <p>- Employees who work at hotels, hospitals, restaurants, international meetings and conventions and need to use English regularly.&nbsp;</p>
+          <p>- Individuals who work in managerial, sales and technical positions in international business, trade and industry and need to use English to communicate with their colleagues.&nbsp;</p>
+          <p>- New employees participating in the job market</p>
+          <h3><strong>3.3. Why does the test require candidates to use only pencils?&nbsp;</strong></h3>
+          <p>It is the standard of the TOEIC® exams, set by makers of the optical scanners used to read answer sheets. You are only allowed to use pencils to fill in the answer sheet. This ensures accuracy in reading answers during the marking process.&nbsp;</p>
+          <p>Other writing tools like pens are not permitted because they can make the answers bleed over or stain on the answer sheets and may cause errors in scanning. Besides, you can easily change your responses with pencils, while pens do not.&nbsp;</p>
+          <p>Furthermore, security is also a reason why the TOEIC® test requires candidates to use pencils only. Security incidents in the past have proved that materials can be brought into the test room as well as test items can be brought out of the test room by using unapproved writing tools.&nbsp;</p>
+          <p>Before starting to take the test, you will be given a standard pencil along with an eraser.</p>
+          <h3><strong>3.4. Why are TOEIC® test items and answer keys not disclosed to the public?</strong></h3>
+          <p>The TOEIC® test forms are reused many times and therefore must be always protected under secure conditions. If the items and answer keys were unveiled publicly, it would remove the integrity of the test.&nbsp;</p>
+          <p>Moreover, the TOEIC® test items and answer keys are copyrighted property of ETS (Educational Testing Service). Hence, the test items and answer keys must not be revealed or used for any purpose without the written permission of ETS.&nbsp;</p>
+          <h3><strong>3.5. How long are scores valid?</strong></h3>
+          <p>The TOEIC® test scores will be valid in two years. Scores are used to measure a candidate’s English capability at the time that a test is administered.&nbsp;</p>
+          <p>Your English skills may enhance or reduce over time, so, a score report will not be reissued if two years have passed since taking the test.&nbsp;</p>
+
+      </div>
+      <p><a href="javascript:void(0);" class="read-more" onclick="toggleContent()">Read more</a></p>
+    </div>
+  </section>
+
+  <script>
+    function toggleContent() {
+      const moreContent = document.getElementById('more-content');
+      const visibleContent = document.getElementById('visible-content');
+      moreContent.classList.toggle('hidden');
+      if (moreContent.classList.contains('hidden')) {
+        document.querySelector('.read-more').textContent = 'Read more';
+      } else {
+        document.querySelector('.read-more').textContent = 'Read less';
+      }
+    }
+
+    function toggleDropdown() {
+        const dropdown = document.getElementById('dropdown-menu');
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+    window.addEventListener('click', function(event) {
+        const dropdown = document.getElementById('dropdown-menu');
+        if (!event.target.closest('.profile-dropdown')) {
+            dropdown.style.display = 'none';
+        }
+    });
+  </script>
+</body>
+</html>
